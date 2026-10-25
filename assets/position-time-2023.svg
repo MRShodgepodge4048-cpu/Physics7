@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 310" role="img" aria-labelledby="title desc">
+<title id="title">Position time graph, original school study packet 2023</title>
+<desc id="desc">The position is 20 meters from 0 to 1 second, rises to 60 meters at 3 seconds, stays at 60 meters until about 4.5 seconds, then falls to 20 meters at 6 seconds.</desc>
+<rect x="0" y="0" width="620" height="310" rx="17" fill="#f9fbff"/>
+<g stroke="#e5ecf7" stroke-width="1">
+<path d="M94 38V253M165 38V253M236 38V253M307 38V253M378 38V253M449 38V253M520 38V253"/>
+<path d="M94 253H520M94 181H520M94 110H520M94 38H520"/>
+</g>
+<g fill="none" stroke="#6b788d" stroke-width="2"><path d="M94 38V253H520"/></g>
+<g font-family="Arial,Helvetica,sans-serif" fill="#4b5870" font-size="15" text-anchor="middle">
+<text x="94" y="276">0</text><text x="165" y="276">1</text><text x="236" y="276">2</text><text x="307" y="276">3</text><text x="378" y="276">4</text><text x="449" y="276">5</text><text x="520" y="276">6</text>
+<text x="307" y="304">Time (seconds)</text>
+</g>
+<g font-family="Arial,Helvetica,sans-serif" fill="#4b5870" font-size="15" text-anchor="end"><text x="82" y="186">20</text><text x="82" y="115">40</text><text x="82" y="44">60</text></g>
+<text transform="translate(22,154) rotate(-90)" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#4b5870">Position (meters)</text>
+<path d="M94 181.5L165 181.5L307 38L413.5 38L520 181.5" fill="none" stroke="#28ac78" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>
