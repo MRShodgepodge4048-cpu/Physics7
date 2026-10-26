@@ -114,3 +114,42 @@
 .math-reviewed>div{display:grid;gap:7px;border-top:1px solid #e5eaf2;padding:12px 14px}
 .math-reviewed span{font-size:11px;color:#63718a;line-height:1.6}
 .math-reviewed strong{color:#273b59}
+
+
+/* Free-body diagram studio: simple interactive one-object force diagrams */
+.fbd-shortcut{grid-template-columns:1fr;margin-top:12px}
+.fbd-shortcut .shortcut{max-width:100%}
+.fbd-help{flex:2;align-self:center;font-size:12px;line-height:1.5;color:#77849a}
+.fbd-layout{display:grid;grid-template-columns:minmax(220px,290px) minmax(0,1fr);gap:18px;align-items:start}
+.fbd-cases{display:grid;gap:7px;max-height:980px;overflow:auto;padding-right:5px}
+.fbd-case{display:flex;align-items:center;text-align:left;gap:10px;padding:13px;background:#fff;border:1px solid #e4e9f3;border-radius:10px;color:#344562;width:100%}
+.fbd-case strong{font-size:11px;color:#7367c9;white-space:nowrap}.fbd-case span:nth-child(2){flex:1;font-weight:700;font-size:12px}
+.fbd-case.active{background:#f2f0ff;border-color:#8677e4}.fbd-case.complete{border-color:#b4dbc5}
+.fbd-workbench{background:#fff;border:1px solid #e4e9f3;padding:22px;border-radius:15px}
+.fbd-prompt h2{font:800 25px/1.25 'Outfit',sans-serif;margin:14px 0}
+.fbd-prompt p{font-size:13px;color:#3c4c65;line-height:1.7}
+.fbd-prompt small{display:block;color:#8490a7;font-size:11px;line-height:1.6;margin:8px 0 12px}
+.fbd-visuals{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fbd-visuals>div{background:#f8faff;border:1px solid #e5eaf3;border-radius:12px;padding:13px;min-width:0}
+.fbd-visuals>div>strong{display:block;color:#697b93;font-weight:800;font-size:11px;margin-bottom:8px}
+.fbd-visuals svg{max-width:100%;display:block;margin:auto}
+.fbd-controls{margin-top:20px;border-top:1px solid #e6ebf3;padding-top:15px}
+.fbd-controls h3,.fbd-reason h3{font:800 19px 'Outfit',sans-serif;margin:6px 0}
+.fbd-controls>p{font-size:12px;color:#7c889d;line-height:1.7}
+.fbd-arrow-row{display:flex;gap:10px;align-items:end;margin-bottom:11px}
+.fbd-row-num{width:24px;height:36px;flex-shrink:0;display:grid;place-items:center;border-radius:8px;background:#efedff;color:#7469b9;font-size:12px;font-weight:800}
+.fbd-arrow-row>label{font-size:10px;color:#7d879c;font-weight:800;flex:1;min-width:0}
+.fbd-arrow-row select,.fbd-reason select{width:100%;margin-top:6px;padding:10px;background:#fff;border:1px solid #dce3ef;border-radius:8px;color:#34445d;font-size:12px;min-height:40px}
+.fbd-delete{border:1px solid #ecd5d5;background:#fff6f6;color:#aa5358;border-radius:9px;height:40px;width:36px;font-size:20px}
+.fbd-buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}
+.fbd-feedback{margin-top:14px;border:1px solid #f0d4ce;background:#fff3ef;color:#934e45;padding:14px;border-radius:10px;line-height:1.7;font-size:12px}
+.fbd-feedback.good{background:#edf9f1;border-color:#cbe9d9;color:#277253}
+.fbd-reason{margin-top:16px;padding:18px;border:1px solid #dce8f6;background:#f4f8ff;border-radius:12px;display:grid;gap:14px}
+.fbd-reason>label{display:block;font-weight:800;font-size:12px;color:#425371}
+.fbd-reason .primary-button{justify-self:start}
+.fbd-done{padding:17px;margin-top:16px;border-radius:12px;background:#ebf9f2;border:1px solid #c5e6d5;color:#2b7457}
+.fbd-done strong{font:800 20px 'Outfit',sans-serif}
+.fbd-done p{line-height:1.7;font-size:13px}
+.fbd-lessons{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+@media(max-width:980px){.fbd-layout{grid-template-columns:1fr}.fbd-cases{display:flex;overflow:auto;max-height:none;padding:2px 0 10px}.fbd-case{min-width:225px;max-width:240px;flex-shrink:0}}
+@media(max-width:610px){.fbd-workbench{padding:14px}.fbd-visuals{grid-template-columns:1fr}.fbd-visuals svg{max-height:210px}.fbd-arrow-row{flex-wrap:wrap}.fbd-arrow-row label{min-width:calc(50% - 32px)}}
