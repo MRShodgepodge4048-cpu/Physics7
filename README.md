@@ -45,3 +45,6 @@ Version 1 deliberately emphasizes confirmed answer-key questions. Auto-graded co
 - PhET: five simulation links for graphing, motion, forces, gravity and springs.
 - D. A. Garanin, *Introductory Physics: Problem Solving* (Lehman College): optional reference; university-level problems are linked, not republished.
 - A. R. King and O. Regev, *Physics with Answers: 500 Problems and Solutions* (Scribd): optional challenging reference. Copyright-protected; linked only.
+
+## Step-by-step explanations
+Every question currently available in the site (29 quick checks and 40 workbook exercises) has an optional, three-step explanation. Students reveal the steps individually, or restart them without changing quiz progress. The worked examples follow the classroom approach: identify known and wanted quantities, choose a linear equation, substitute values, and check units or directions. Conceptual and graph questions explain the reasoning instead of inventing calculations. The student-facing walkthroughs are maintained in `steps.js` and are based on the school workbook, pre-comp reviews and the Physics 7 Summer Packet's worked instruction and keys.
