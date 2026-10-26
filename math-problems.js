@@ -1,4 +1,4 @@
-/* Existing numeric questions from school-provided Physics 7 instructional resources; no new scenarios. */
+/* Original classroom calculation questions from Physics 7 packets, workbooks, and lecture slides. */
 window.PHYSICS7_MATH = [
   {
     "id": "p01",
@@ -420,7 +420,7 @@ window.PHYSICS7_MATH = [
     "id": "p32",
     "unit": 3,
     "topic": "Weight and gravity",
-    "q": "What about on the Moon (gmoon = 1.6 m/s²)?",
+    "q": "A 54 kg person weighs less on the Moon. What is their weight on the Moon (gmoon = 1.6 m/s²)?",
     "source": "Physics 7 Pre-Comp Review 2023 · Do Now (54 kg person, Moon weight)",
     "type": "weight",
     "mass": 54,
