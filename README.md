@@ -7,7 +7,7 @@ A polished, self-paced study site for Units 1–3 of the Physics 7 curriculum (2
 - **Unit 2 — Kinematics:** displacement, velocity, acceleration and motion graphs.
 - **Unit 3 — Dynamics:** forces, Newton's laws, friction, diagrams and equilibrium.
 - **Quick checks:** 29 sourced, auto-graded school review questions. Answers transcribed from the school-supplied 2023 Pre-Comp Review slides.
-- **Skill practice:** 20 original workbook and study-packet exercises. These do not auto-grade when no approved answer key exists.
+- **Skill practice:** 40 original school workbook, quiz, lecture-slide and study-packet exercises with 40 guided solution checks. Numeric subparts offer verified checks; written explanations use guided self-review.
 - Progress tracking, retry list, notes saved to this device, and printable summary.
 
 ## Source fidelity and scope
@@ -40,3 +40,8 @@ The educational questions are from school-supplied materials. **Please verify sc
 
 ## Next iteration
 Version 1 deliberately emphasizes confirmed answer-key questions. Auto-graded coverage currently leans heavily toward Unit 3; more Unit 1–2 source-keyed assessment questions and visuals should be added when available. This is a review aid, not a graded assignment or project.
+
+## Additional links
+- PhET: five simulation links for graphing, motion, forces, gravity and springs.
+- D. A. Garanin, *Introductory Physics: Problem Solving* (Lehman College): optional reference; university-level problems are linked, not republished.
+- A. R. King and O. Regev, *Physics with Answers: 500 Problems and Solutions* (Scribd): optional challenging reference. Copyright-protected; linked only.
