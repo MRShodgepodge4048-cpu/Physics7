@@ -20,6 +20,16 @@ function go(view){const hash="#/"+view;if(location.hash===hash){setView(view);}e
 function syncRoute(){const name=location.hash.replace(/^#\/?/,"");setView(["home","practice","workbook","mistakes","resources"].includes(name)?name:"home");}
 function topicSelect(selectId,data,unit){const el=$(selectId),prev=el.value;let list=[...new Set(data.filter(q=>unit==="all"||String(q.unit)===unit).map(q=>q.topic))].sort();el.innerHTML='<option value="all">All topics</option>'+list.map(t=>'<option value="'+safe(t)+'">'+safe(t)+'</option>').join("");el.value=list.includes(prev)?prev:"all";return el.value;}
 function setUnit(unit){filter={unit:String(unit),topic:"all",search:""};$("#quizUnit").value=filter.unit;$("#quizSearch").value="";$("#quizTopic").value=topicSelect("#quizTopic",bank.quizzes,filter.unit);index=0;go("practice");}
+
+const revealedSteps={};
+function stepsPanel(group,id){
+ const steps=window.PHYSICS7_STEPS?.[group]?.[id];
+ if(!Array.isArray(steps)||!steps.length)return "";
+ const key=group+":"+id,shown=Math.min(revealedSteps[key]||0,steps.length);
+ const list=shown?'<ol class="step-list">'+steps.slice(0,shown).map((line,i)=>'<li><span class="step-number">'+(i+1)+'</span><span>'+safe(line)+'</span></li>').join("")+'</ol>':'<p class="step-intro">Reveal one step at a time. Try it yourself before moving on.</p>';
+ const buttonText=shown===0?"Show first step":shown===steps.length?"Start steps over":"Show next step";
+ return '<section class="steps-panel" aria-label="Step-by-step explanation"><div class="steps-head"><strong>Step-by-step help</strong><span class="step-count">STEP '+shown+' OF '+steps.length+'</span></div>'+list+'<button type="button" class="secondary-button steps-next" data-reveal-step="'+safe(key)+'">'+safe(buttonText)+' →</button></section>';
+}
 function renderQuiz(){
  const questions=getQuestions(), total=questions.length,area=$("#quizArea"),dots=$("#quizDots");
  $("#quizPosition").textContent=total?`Question ${Math.min(index+1,total)} of ${total}`:"No matching questions";
@@ -36,7 +46,7 @@ function renderQuiz(){
  }).join("");
  const msg=feedback[q.id]||(result.passed?"Correct! Nice work.":result.attempted?"Not quite. Try a different answer.":"");
  const fb=msg?'<div class="feedback '+(result.passed?"correct":"incorrect")+'" role="status"><strong>'+(result.passed?"Nice work!":"Keep going.")+'</strong>'+safe(msg)+(result.passed&&result.attempted&&!result.firstCorrect?'<div>Corrected after your first attempt.</div>':"")+'</div>':"";
- area.innerHTML='<div class="question-topline"><span class="topic-pill">UNIT '+q.unit+' · '+safe(q.topic)+'</span><span class="source-code">PRACTICE QUESTION</span></div><h2>'+safe(q.q)+'</h2><div class="option-list">'+options+'</div>'+(multi&&!result.passed?'<button type="button" class="primary-button" style="margin-top:16px" id="checkMultiple" '+(choices.length?"":"disabled")+' >Check selected answers →</button>':"")+fb;
+ area.innerHTML='<div class="question-topline"><span class="topic-pill">UNIT '+q.unit+' · '+safe(q.topic)+'</span><span class="source-code">PRACTICE QUESTION</span></div><h2>'+safe(q.q)+'</h2><div class="option-list">'+options+'</div>'+(multi&&!result.passed?'<button type="button" class="primary-button" style="margin-top:16px" id="checkMultiple" '+(choices.length?"":"disabled")+' >Check selected answers →</button>':"")+fb+stepsPanel("quizzes",q.id);
  $("#sourceAside").textContent="Work through the problem first, then check your answer. Try again if needed.";
 }
 function grade(q,selection){
@@ -69,7 +79,7 @@ function renderWork(){
   const fields=(check?.fields||[]).map((field,j)=>'<label class="check-label" for="check-'+item.id+'-'+j+'">'+safe(field.label)+'<input type="text" data-answer="'+item.id+'" data-field="'+j+'" id="check-'+item.id+'-'+j+'" placeholder="Your answer" value="'+safe(checkedInputs[item.id]?.[j]||"")+'"><span class="check-result" id="result-'+item.id+'-'+j+'"></span></label>').join("");
   const reveal=!!revealStates[item.id];
   const answerPanel=check?'<div class="answer-section"><div class="answer-actions">'+(check.fields?.length?'<button type="button" class="secondary-button" data-check="'+item.id+'">Check answers</button>':'')+'<button type="button" class="secondary-button" aria-expanded="'+reveal+'" data-guide="'+item.id+'">'+(reveal?"Hide solution guide":"Show solution guide")+'</button></div><div class="answer-guide" '+(reveal?'':'hidden')+' id="guide-'+item.id+'"><strong>Answer guide</strong><p>'+safe(check.guide)+'</p>'+(check.fields?.length?'<div class="guide-results">'+check.fields.map(f=>'<div><span>'+safe(f.label)+'</span><strong>'+safe(f.display)+'</strong></div>').join("")+'</div>':'')+'<small>Compare written explanations to the guide; written work is not automatically graded.</small></div></div>':'';
-  return '<article class="workbook-card"><div class="wb-top"><span class="topic-pill">UNIT '+item.unit+' · '+safe(item.topic)+'</span><span class="not-graded">'+(check?.fields?.length?'ANSWER CHECK':'SELF-CHECK')+'</span></div><h3>Practice exercise</h3><div class="wb-question">'+safe(item.q)+'</div>'+(item.graphic?'<img src="'+safe(item.graphic)+'" alt="Position-time graph for this exercise" style="width:100%;display:block;margin:14px 0;border-radius:10px;border:1px solid #e4e9f3"/>':'')+(fields?'<div class="answer-grid">'+fields+'</div>':'')+'<label class="sr-only" for="note-'+item.id+'">Your working notes for '+safe(item.source)+'</label><textarea id="note-'+item.id+'" data-note="'+item.id+'" placeholder="Your work, notes, or reasoning…">'+safe(notes[item.id]||"")+'</textarea>'+answerPanel+'<div class="wb-footer"><span>Physics 7 · Unit '+item.unit+'</span><span>Saved on this device</span></div></article>';
+  return '<article class="workbook-card"><div class="wb-top"><span class="topic-pill">UNIT '+item.unit+' · '+safe(item.topic)+'</span><span class="not-graded">'+(check?.fields?.length?'ANSWER CHECK':'SELF-CHECK')+'</span></div><h3>Practice exercise</h3><div class="wb-question">'+safe(item.q)+'</div>'+(item.graphic?'<img src="'+safe(item.graphic)+'" alt="Position-time graph for this exercise" style="width:100%;display:block;margin:14px 0;border-radius:10px;border:1px solid #e4e9f3"/>':'')+(fields?'<div class="answer-grid">'+fields+'</div>':'')+'<label class="sr-only" for="note-'+item.id+'">Your working notes for '+safe(item.source)+'</label><textarea id="note-'+item.id+'" data-note="'+item.id+'" placeholder="Your work, notes, or reasoning…">'+safe(notes[item.id]||"")+'</textarea>'+stepsPanel("workbook",item.id)+answerPanel+'<div class="wb-footer"><span>Physics 7 · Unit '+item.unit+'</span><span>Saved on this device</span></div></article>';
  }).join(""):'<div class="empty-state"><h3>No exercises here</h3><p>Choose another unit or topic.</p></div>';
 }
 function gradeWorkbook(id){
@@ -112,6 +122,19 @@ document.addEventListener("click",e=>{
  if(b.id==="nextQuestion"){index=Math.min(index+1,getQuestions().length-1);renderQuiz();return;}
  if(b.dataset.option!==undefined){const q=getQuestions()[index];if(!q||history[q.id]?.passed)return;const pos=Number(b.dataset.option);if(Array.isArray(q.answer)){const ary=selectedMulti[q.id]||[];selectedMulti[q.id]=ary.includes(pos)?ary.filter(i=>i!==pos):[...ary,pos].sort();renderQuiz();}else grade(q,pos);return;}
  if(b.id==="checkMultiple"){const q=getQuestions()[index];if(q&&Array.isArray(q.answer))grade(q,selectedMulti[q.id]||[]);return;}
+
+ if(b.dataset.revealStep){
+  const key=b.dataset.revealStep,at=key.indexOf(":");
+  const group=key.slice(0,at),id=key.slice(at+1);
+  const steps=window.PHYSICS7_STEPS?.[group]?.[id];
+  if(!Array.isArray(steps)||!steps.length)return;
+  const current=revealedSteps[key]||0;
+  revealedSteps[key]=current>=steps.length?0:current+1;
+  if(group==="quizzes")renderQuiz();
+  if(group==="workbook")renderWork();
+  announce(revealedSteps[key]===0?"Steps reset.":"Step "+revealedSteps[key]+" of "+steps.length+" revealed.");
+  return;
+ }
  if(b.dataset.check){gradeWorkbook(b.dataset.check);return;}
  if(b.dataset.guide){const id=b.dataset.guide;revealStates[id]=!revealStates[id];save("physics7_revealed_v1",revealStates);const el=$("#guide-"+id);if(el)el.hidden=!revealStates[id];b.setAttribute("aria-expanded",String(revealStates[id]));b.textContent=revealStates[id]?"Hide solution guide":"Show solution guide";return;}
  if(b.dataset.retry){filter={unit:"all",topic:"all",search:""};$("#quizUnit").value="all";$("#quizSearch").value="";topicSelect("#quizTopic",bank.quizzes,"all");index=getQuestions().findIndex(q=>q.id===b.dataset.retry);go("practice");return;}
