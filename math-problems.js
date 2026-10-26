@@ -1,4 +1,4 @@
-/* Numeric questions transcribed from the user's Physics 7 school packet and review slides. No fabricated question scenarios. */
+/* Existing numeric questions from school-provided Physics 7 instructional resources; no new scenarios. */
 window.PHYSICS7_MATH = [
   {
     "id": "p01",
@@ -132,7 +132,7 @@ window.PHYSICS7_MATH = [
   },
   {
     "id": "p11",
-    "unit": "km/h",
+    "unit": 2,
     "topic": "Speed and velocity",
     "q": "A car travels 180 kilometers in 3 hours. What is its average speed?",
     "source": "Physics 7 Summer Packet p. 20 Q1, key p. 91",
@@ -142,11 +142,12 @@ window.PHYSICS7_MATH = [
     "aLabel": "Distance (km)",
     "b": 3,
     "bLabel": "Time (h)",
-    "result": 60
+    "result": 60,
+    "answerUnit": "km/h"
   },
   {
     "id": "p12",
-    "unit": "m/min",
+    "unit": 2,
     "topic": "Speed and velocity",
     "q": "You walk 500 meters in 10 minutes. What is your average speed?",
     "source": "Physics 7 Summer Packet p. 20 Q2, key p. 91",
@@ -156,11 +157,12 @@ window.PHYSICS7_MATH = [
     "aLabel": "Distance (m)",
     "b": 10,
     "bLabel": "Time (min)",
-    "result": 50
+    "result": 50,
+    "answerUnit": "m/min"
   },
   {
     "id": "p13",
-    "unit": "m",
+    "unit": 2,
     "topic": "Speed and velocity",
     "q": "You are walking at a speed of 2 meters per second. How far will you travel in 8 seconds?",
     "source": "Physics 7 Summer Packet p. 20 Q4, key p. 91",
@@ -170,11 +172,12 @@ window.PHYSICS7_MATH = [
     "aLabel": "Speed (m/s)",
     "b": 8,
     "bLabel": "Time (s)",
-    "result": 16
+    "result": 16,
+    "answerUnit": "m"
   },
   {
     "id": "p14",
-    "unit": "m/min",
+    "unit": 2,
     "topic": "Speed and velocity",
     "q": "A bus travels 500 meters south in 10 minutes. What is its average velocity?",
     "source": "Physics 7 Summer Packet p. 21 Q8, key p. 91",
@@ -185,11 +188,12 @@ window.PHYSICS7_MATH = [
     "b": 10,
     "bLabel": "Time (min)",
     "result": 50,
-    "direction": "south"
+    "direction": "south",
+    "answerUnit": "m/min"
   },
   {
     "id": "p15",
-    "unit": "km",
+    "unit": 2,
     "topic": "Speed and velocity",
     "q": "A car drives straight at a constant speed of 40 km/h for 2 hours. What is its total distance?",
     "source": "Physics 7 Summer Packet p. 21 Q9, key p. 91",
@@ -199,11 +203,12 @@ window.PHYSICS7_MATH = [
     "aLabel": "Speed (km/h)",
     "b": 2,
     "bLabel": "Time (h)",
-    "result": 80
+    "result": 80,
+    "answerUnit": "km"
   },
   {
     "id": "p16",
-    "unit": "s",
+    "unit": 2,
     "topic": "Speed and velocity",
     "q": "A person is walking at a constant velocity of 1 meter per second. How long will it take them to travel 100 meters?",
     "source": "Physics 7 Summer Packet p. 21 Q10, key p. 91",
@@ -213,11 +218,12 @@ window.PHYSICS7_MATH = [
     "aLabel": "Distance (m)",
     "b": 1,
     "bLabel": "Speed (m/s)",
-    "result": 100
+    "result": 100,
+    "answerUnit": "s"
   },
   {
     "id": "p17",
-    "unit": "m/s",
+    "unit": 2,
     "topic": "Speed and velocity",
     "q": "Calculate the speed if the object travels 10 meters in 5 seconds.",
     "source": "Physics 7 Summer Packet p. 21 Q11 (from original motion diagram)",
@@ -227,11 +233,12 @@ window.PHYSICS7_MATH = [
     "aLabel": "Distance (m)",
     "b": 5,
     "bLabel": "Time (s)",
-    "result": 2
+    "result": 2,
+    "answerUnit": "m/s"
   },
   {
     "id": "p18",
-    "unit": "m/s²",
+    "unit": 2,
     "topic": "Acceleration",
     "q": "A scooter speeds up from 3 m/s to 9 m/s in 3 seconds. What is its average acceleration?",
     "source": "Physics 7 Summer Packet p. 23, Acceleration Practice Q1",
@@ -239,11 +246,12 @@ window.PHYSICS7_MATH = [
     "vi": 3,
     "vf": 9,
     "t": 3,
-    "result": 2
+    "result": 2,
+    "answerUnit": "m/s²"
   },
   {
     "id": "p19",
-    "unit": "m/s²",
+    "unit": 2,
     "topic": "Acceleration",
     "q": "A bike slows down from 12 m/s to 4 m/s in 4 seconds. What is the acceleration? Is it positive or negative?",
     "source": "Physics 7 Summer Packet p. 24, Acceleration Practice Q2",
@@ -251,11 +259,12 @@ window.PHYSICS7_MATH = [
     "vi": 12,
     "vf": 4,
     "t": 4,
-    "result": -2
+    "result": -2,
+    "answerUnit": "m/s²"
   },
   {
     "id": "p20",
-    "unit": "m/s²",
+    "unit": 2,
     "topic": "Acceleration",
     "q": "A ball is dropped and speeds up from 0 m/s to 20 m/s in 2 seconds. What is the average acceleration?",
     "source": "Physics 7 Summer Packet p. 24, Acceleration Practice Q4",
@@ -263,11 +272,12 @@ window.PHYSICS7_MATH = [
     "vi": 0,
     "vf": 20,
     "t": 2,
-    "result": 10
+    "result": 10,
+    "answerUnit": "m/s²"
   },
   {
     "id": "p21",
-    "unit": "m/s²",
+    "unit": 2,
     "topic": "Acceleration",
     "q": "A bike goes from 10 m/s to 2 m/s in 6 s. What is its acceleration?",
     "source": "Physics 7 Pre-Comp Review 2023 · White Boards",
@@ -276,11 +286,12 @@ window.PHYSICS7_MATH = [
     "vf": 2,
     "t": 6,
     "result": -1.3333333333333333,
-    "tolerance": 0.02
+    "tolerance": 0.02,
+    "answerUnit": "m/s²"
   },
   {
     "id": "p22",
-    "unit": "m/s",
+    "unit": 2,
     "topic": "Instantaneous velocity",
     "q": "A skateboarder starts from rest and speeds up at 2 m/s² for 4 seconds. What is their instantaneous velocity at the 4-second mark?",
     "source": "Physics 7 Summer Packet p. 26, Instantaneous Velocity Practice Q1",
@@ -288,11 +299,12 @@ window.PHYSICS7_MATH = [
     "vi": 0,
     "acc": 2,
     "t": 4,
-    "result": 8
+    "result": 8,
+    "answerUnit": "m/s"
   },
   {
     "id": "p23",
-    "unit": "m/s",
+    "unit": 2,
     "topic": "Instantaneous velocity",
     "q": "A runner has an initial velocity of 3 m/s and accelerates at 1.5 m/s² for 5 seconds. What is the runner’s velocity after 5 seconds?",
     "source": "Physics 7 Summer Packet pp. 26–27, Instantaneous Velocity Practice Q2",
@@ -300,11 +312,12 @@ window.PHYSICS7_MATH = [
     "vi": 3,
     "acc": 1.5,
     "t": 5,
-    "result": 10.5
+    "result": 10.5,
+    "answerUnit": "m/s"
   },
   {
     "id": "p24",
-    "unit": "N",
+    "unit": 3,
     "topic": "Net force",
     "q": "A person pulls a sled to the right with an applied force (Fa) of 60 N. Friction (Ff) pushes back to the left with 20 N. What is the net force acting on the sled?",
     "source": "Physics 7 Summer Packet p. 36 Q2, key p. 95",
@@ -312,11 +325,12 @@ window.PHYSICS7_MATH = [
     "right": 60,
     "left": 20,
     "result": 40,
-    "direction": "right"
+    "direction": "right",
+    "answerUnit": "N"
   },
   {
     "id": "p25",
-    "unit": "N",
+    "unit": 3,
     "topic": "Net force",
     "q": "A box is being pulled with a force of 20 N to the right, and friction pulls with 5 N to the left. What is the net force acting on the box?",
     "source": "Physics 7 Summer Packet p. 49 Q4, key p. 96",
@@ -324,44 +338,48 @@ window.PHYSICS7_MATH = [
     "right": 20,
     "left": 5,
     "result": 15,
-    "direction": "right"
+    "direction": "right",
+    "answerUnit": "N"
   },
   {
     "id": "p26",
-    "unit": "N",
+    "unit": 3,
     "topic": "Newton's second law",
     "q": "A student pushes a 10 kg sled, and it accelerates at 2 m/s². What is the net force on the sled?",
     "source": "Physics 7 Summer Packet p. 49 Q5, key p. 96",
     "type": "force",
     "mass": 10,
     "acc": 2,
-    "result": 20
+    "result": 20,
+    "answerUnit": "N"
   },
   {
     "id": "p27",
-    "unit": "kg",
+    "unit": 3,
     "topic": "Newton's second law",
     "q": "A car has a net force of 6000 N acting on it, and it accelerates at 3 m/s². What is the mass of the car?",
     "source": "Physics 7 Summer Packet p. 49 Q6, key p. 96",
     "type": "mass",
     "force": 6000,
     "acc": 3,
-    "result": 2000
+    "result": 2000,
+    "answerUnit": "kg"
   },
   {
     "id": "p28",
-    "unit": "m/s²",
+    "unit": 3,
     "topic": "Weight and gravity",
     "q": "The force of gravity (Fg) acting on an object is 98 N. The object has a mass of 10 kg. What is the value of gravity used in this calculation?",
     "source": "Physics 7 Summer Packet p. 41 Q3, key p. 96",
     "type": "gravity",
     "force": 98,
     "mass": 10,
-    "result": 9.8
+    "result": 9.8,
+    "answerUnit": "m/s²"
   },
   {
     "id": "p29",
-    "unit": "N",
+    "unit": 3,
     "topic": "Friction",
     "q": "A 5 kg object is on a flat surface. The coefficient of friction (μ) is 0.4. What is the frictional force? (Use gravity = 9.8 m/s²)",
     "source": "Physics 7 Summer Packet p. 39 Q5, key p. 96",
@@ -370,11 +388,12 @@ window.PHYSICS7_MATH = [
     "g": 9.8,
     "mu": 0.4,
     "normal": 49,
-    "result": 19.6
+    "result": 19.6,
+    "answerUnit": "N"
   },
   {
     "id": "p30",
-    "unit": "N",
+    "unit": 3,
     "topic": "Newton's second law",
     "q": "What is the net force on a 3.6 kg block of wood that accelerates at 7.1 m/s²?",
     "source": "Physics 7 Pre-Comp Review 2023 · White Boards",
@@ -382,39 +401,43 @@ window.PHYSICS7_MATH = [
     "mass": 3.6,
     "acc": 7.1,
     "result": 25.56,
-    "tolerance": 0.06
+    "tolerance": 0.06,
+    "answerUnit": "N"
   },
   {
     "id": "p31",
-    "unit": "N",
+    "unit": 3,
     "topic": "Weight and gravity",
     "q": "How much does a 54 kg person weigh on Earth? Use g = 9.8 m/s².",
     "source": "Physics 7 Pre-Comp Review 2023 · Do Now (54 kg person, Earth weight)",
     "type": "weight",
     "mass": 54,
     "g": 9.8,
-    "result": 529.2
+    "result": 529.2,
+    "answerUnit": "N"
   },
   {
     "id": "p32",
-    "unit": "N",
+    "unit": 3,
     "topic": "Weight and gravity",
     "q": "What about on the Moon (gmoon = 1.6 m/s²)?",
     "source": "Physics 7 Pre-Comp Review 2023 · Do Now (54 kg person, Moon weight)",
     "type": "weight",
     "mass": 54,
     "g": 1.6,
-    "result": 86.4
+    "result": 86.4,
+    "answerUnit": "N"
   },
   {
     "id": "p33",
-    "unit": "N",
+    "unit": 3,
     "topic": "Net force",
     "q": "A box is sitting still on the floor. The force of gravity (Fg) on the box is 100 N down. What is the normal force (Fn) acting on the box?",
     "source": "Physics 7 Summer Packet p. 36 Q1a, key p. 95",
     "type": "normal",
     "gravity": 100,
     "result": 100,
-    "direction": "up"
+    "direction": "up",
+    "answerUnit": "N"
   }
 ];
