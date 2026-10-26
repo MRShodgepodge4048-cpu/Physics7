@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#101d33">
-  <meta name="description" content="Physics 7 Pre-Comp Review Lab: authentic practice from the school's Unit 1–3 materials.">
-  <title>Physics 7 | Pre-Comp Review Lab</title>
+  <meta name="description" content="Physics 7 pre-comprehensive review: Units 1–3 practice, calculations, and simulations.">
+  <title>Physics 7 | Pre-Comp Review</title>
   <link rel="stylesheet" href="styles.css">
   <script defer src="questions.js"></script>
+  <script defer src="checks.js"></script>
   <script defer src="app.js"></script>
 </head>
 <body>
@@ -16,7 +17,7 @@
     <aside class="sidebar" aria-label="Review navigation">
       <a href="#/" class="brand" aria-label="Physics 7 review home">
         <span class="brand-mark" aria-hidden="true">Φ</span>
-        <span><strong>PHYSICS<span class="brand-accent">/</span>7</strong><small>THE REVIEW LAB</small></span>
+        <span><strong>PHYSICS<span class="brand-accent">/</span>7</strong><small>PRE-COMP REVIEW</small></span>
       </a>
       <div class="sidebar-label">YOUR WORKSPACE</div>
       <nav class="nav-links" aria-label="Sections">
@@ -47,47 +48,55 @@
       <main id="main" tabindex="-1">
         <section id="homeView" class="view">
           <div class="hero">
-            <div class="hero-copy"><span class="eyebrow light">YOUR PRE-COMP STARTS HERE <span class="tiny-star">✦</span></span>
-              <h1>Get ready to<br><em>think like a physicist.</em></h1>
-              <p>Three units. One place to review. Build confidence with questions from your school's own study materials.</p>
+            <div class="hero-copy"><span class="eyebrow light">PHYSICS 7 · UNITS 1–3</span>
+              <h1>Pre-Comp<br><em>Review.</em></h1>
+              <p>Practice the concepts, calculations, and graphs we've covered in Units 1–3.</p>
               <div class="hero-actions"><button type="button" class="primary-button white-button" data-action="start">Start a quick check <span aria-hidden="true">→</span></button><button type="button" class="hero-link" data-action="skills">Try a workbook skill <span aria-hidden="true">↗</span></button></div>
             </div>
             <div class="hero-art" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div><div class="planet"><span>F</span><sub>net</sub><span class="eq"> = ma</span></div><div class="orbital-dot d1"></div><div class="orbital-dot d2"></div><div class="orbital-dot d3"></div><div class="diagram-label label-a">v = d/t</div><div class="diagram-label label-b">Δx = x<sub>f</sub> - x<sub>i</sub></div></div>
           </div>
 
-          <div class="section-heading"><div><span class="eyebrow">YOUR LEARNING SNAPSHOT</span><h2>Progress at a glance</h2></div><span class="support-note">Progress saves on this device</span></div>
+          <div class="section-heading"><div><span class="eyebrow">STUDY PROGRESS</span><h2>Progress at a glance</h2></div><span class="support-note">Progress saves on this device</span></div>
           <div class="stats-grid">
             <article class="stat-card"><span class="stat-ico purple">◉</span><div class="stat-value" id="statAttempted">0</div><div class="stat-title">Questions attempted</div><div class="stat-caption" id="statAttemptCaption">Start anywhere</div></article>
             <article class="stat-card"><span class="stat-ico blue">✓</span><div class="stat-value" id="statAccuracy">—</div><div class="stat-title">First-try accuracy</div><div class="stat-caption">On checked questions</div></article>
             <article class="stat-card"><span class="stat-ico orange">↺</span><div class="stat-value" id="statMissed">0</div><div class="stat-title">To revisit</div><div class="stat-caption">Questions to try again</div></article>
           </div>
 
-          <div class="section-heading spaced"><div><span class="eyebrow">CHOOSE YOUR FOCUS</span><h2>Explore the three units <span class="heading-spark">✳</span></h2></div></div>
+          <div class="section-heading spaced"><div><span class="eyebrow">REVIEW BY UNIT</span><h2>Explore the three units <span class="heading-spark">✳</span></h2></div></div>
           <div class="unit-grid">
             <button type="button" class="unit-card" data-action="unit" data-choose-unit="1"><span class="unit-tag">UNIT 01</span><span class="unit-illustration math" aria-hidden="true"><span class="math-symbol">x/y</span><span class="gridlines"></span></span><span class="unit-title">Math Skills<br>&amp; Lab Skills</span><span class="unit-description">Metric units, conversions, proportional reasoning, graphs, and experiments.</span><span class="unit-cta">Review this unit <span>↗</span></span></button>
             <button type="button" class="unit-card" data-action="unit" data-choose-unit="2"><span class="unit-tag">UNIT 02</span><span class="unit-illustration motion" aria-hidden="true"><svg viewBox="0 0 180 106"><path d="M12 90H168M20 98V8" stroke="currentColor" stroke-width="2" opacity=".3" fill="none"/><path d="M20 85L67 70L98 25L156 14" stroke="#328ed6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="98" cy="25" r="6" fill="#328ed6"/></svg></span><span class="unit-title">Motion &amp;<br>Kinematics</span><span class="unit-description">Distance, displacement, speed, velocity, acceleration, and motion graphs.</span><span class="unit-cta">Review this unit <span>↗</span></span></button>
             <button type="button" class="unit-card" data-action="unit" data-choose-unit="3"><span class="unit-tag">UNIT 03</span><span class="unit-illustration dynamics" aria-hidden="true"><span class="force-object"></span><span class="force-arr left">←</span><span class="force-arr right">→</span><span class="force-arr up">↑</span><span class="force-arr down">↓</span></span><span class="unit-title">Forces &amp;<br>Dynamics</span><span class="unit-description">Newton's laws, friction, gravity, force diagrams, and equilibrium.</span><span class="unit-cta">Review this unit <span>↗</span></span></button>
           </div>
-          <div class="bottom-note"><span>✦</span><div><strong>Not a project. Just good practice.</strong><p>Choose any topic, leave when you need to, and pick up right where you left off.</p></div></div>
+          <div class="bottom-note"><span>✦</span><div><strong>A little practice goes a long way.</strong><p>Choose a unit or topic, work through the questions, and revisit anything you miss.</p></div></div>
         </section>
 
         <section id="practiceView" class="view" hidden>
-          <div class="page-intro"><span class="eyebrow">ACTIVE RECALL</span><h1>Quick checks<span class="period">.</span></h1><p>Original school review questions with answer keys provided in the source slides. You can retry any missed question.</p></div>
+          <div class="page-intro"><span class="eyebrow">ACTIVE RECALL</span><h1>Quick checks<span class="period">.</span></h1><p>Practice multiple-choice questions by unit or topic. You can retry questions you miss.</p></div>
           <div class="toolbar"><label for="quizUnit">Unit <select id="quizUnit"><option value="all">All units</option><option value="1">Unit 1 · Math + Lab</option><option value="2">Unit 2 · Kinematics</option><option value="3">Unit 3 · Dynamics</option></select></label><label for="quizTopic">Topic <select id="quizTopic"><option value="all">All topics</option></select></label><label class="search-label" for="quizSearch">Find a question <input id="quizSearch" placeholder="Search concepts or questions…" type="search"></label></div>
-          <div class="quiz-layout"><div class="question-column"><div class="quiz-navigation"><span id="quizPosition">Question 1 of 1</span><div class="quiz-dots" id="quizDots" aria-label="Question selection"></div></div><div class="question-area" id="quizArea"></div><div class="question-controls"><button type="button" id="prevQuestion" class="secondary-button">← Previous</button><button type="button" id="nextQuestion" class="primary-button">Next question →</button></div></div><aside class="quiz-aside"><div class="info-panel"><span class="eyebrow">HOW THIS WORKS</span><h3>Practice, not pressure.</h3><p>Choose an answer to check against the school's original answer key. Your first attempt determines your accuracy; later tries help you learn.</p></div><div class="info-panel compact"><span class="eyebrow">QUESTION SOURCE</span><p id="sourceAside">The source slide is shown with each question.</p></div></aside></div>
+          <div class="quiz-layout"><div class="question-column"><div class="quiz-navigation"><span id="quizPosition">Question 1 of 1</span><div class="quiz-dots" id="quizDots" aria-label="Question selection"></div></div><div class="question-area" id="quizArea"></div><div class="question-controls"><button type="button" id="prevQuestion" class="secondary-button">← Previous</button><button type="button" id="nextQuestion" class="primary-button">Next question →</button></div></div><aside class="quiz-aside"><div class="info-panel"><span class="eyebrow">HOW THIS WORKS</span><h3>Practice, not pressure.</h3><p>Check your answers as you go. Your first attempt counts toward your study accuracy, and you can always try again.</p></div><div class="info-panel compact"><span class="eyebrow">STUDY TIP</span><p id="sourceAside">Take your time. Use scrap paper for calculations and always include units.</p></div></aside></div>
         </section>
 
         <section id="workbookView" class="view" hidden>
-          <div class="page-intro"><span class="eyebrow">PRACTICE THE PROCESS</span><h1>Skill practice<span class="period">.</span></h1><p>Real exercises from school workbooks. Work on paper or enter notes here. These are deliberately <strong>not auto-graded</strong> without an approved answer key.</p></div>
+          <div class="page-intro"><span class="eyebrow">PRACTICE THE PROCESS</span><h1>Skill practice<span class="period">.</span></h1><p>Review calculations and written responses from class. Enter your work, check numerical answers, or compare explanations to a solution guide.</p></div>
           <div class="toolbar"><label for="workUnit">Unit <select id="workUnit"><option value="all">All units</option><option value="1">Unit 1 · Math + Lab</option><option value="2">Unit 2 · Kinematics</option><option value="3">Unit 3 · Dynamics</option></select></label><label for="workTopic">Topic <select id="workTopic"><option value="all">All topics</option></select></label></div>
           <div id="workbookCards" class="workbook-grid"></div>
         </section>
 
         <section id="mistakesView" class="view" hidden><div class="page-intro"><span class="eyebrow">TURN MISSTEPS INTO MASTERY</span><h1>Retry missed<span class="period">.</span></h1><p>Review previously missed quick checks. Reaching the correct answer clears the question from this list.</p></div><div id="missedList" class="missed-list"></div></section>
 
-        <section id="resourcesView" class="view" hidden><div class="page-intro"><span class="eyebrow">THE TOOLKIT</span><h1>Study resources<span class="period">.</span></h1><p>Use the same concepts and notation as the course. Equations are written in one line for easy reading.</p></div><div class="resource-layout"><article class="resource-panel"><span class="eyebrow">COURSE EQUATIONS</span><h2>Linear equation reference</h2><p>These are taken from the current course objectives, not a replacement for an official exam equation sheet.</p><div class="equation-list" id="equationList"></div></article><article class="resource-panel"><span class="eyebrow">OUR SOURCES</span><h2>Where the questions come from</h2><p>All practice questions are reproduced from the school-supplied review slides or unit workbooks. We do not generate physics questions.</p><div class="source-list"><div><strong>Physics 7 Pre-Comp Review (2023)</strong><span>Multiple-choice practice and its published answer key</span></div><div><strong>Physics 7 Unit 1 Workbook</strong><span>Scientific thinking and math practice</span></div><div><strong>Physics 7 Unit 2 Workbook</strong><span>Motion and kinematics practice</span></div><div><strong>Physics 7 Unit 3 Workbook: Dynamics</strong><span>Force and Newton's laws practice</span></div><div><strong>Physics 7 Curriculum (2026–27)</strong><span>Defines included Unit 1–3 objectives</span></div></div><p class="source-warning">Older resources contain some Unit 4 topics and superseded objectives. Those are excluded from this edition.</p></article></div><div class="external-resource"><div><span class="eyebrow">EXTRA EXPLORATION</span><h3>PhET: Forces and Motion Basics</h3><p>Try a separate interactive simulation to explore net force and friction.</p></div><a class="secondary-button" href="https://phet.colorado.edu/en/simulations/forces-and-motion-basics" target="_blank" rel="noopener noreferrer">Open simulation ↗</a></div></section>
+        <section id="resourcesView" class="view" hidden><div class="page-intro"><span class="eyebrow">REFERENCE & PRACTICE</span><h1>Study resources<span class="period">.</span></h1><p>Use the same concepts and notation as the course. Equations are written in one line for easy reading.</p></div><div class="resource-layout"><article class="resource-panel"><span class="eyebrow">COURSE EQUATIONS</span><h2>Linear equation reference</h2><p>These are taken from the current course objectives, not a replacement for an official exam equation sheet.</p><div class="equation-list" id="equationList"></div></article><article class="resource-panel"><span class="eyebrow">STUDY MATERIALS</span><h2>Classroom review materials</h2><p>Use the topics and practice questions from our class review packets, workbooks, and lecture materials.</p><div class="source-list"><div><strong>Physics 7 Pre-Comp Review (2023)</strong><span>Multiple-choice questions and calculations</span></div><div><strong>Physics 7 Unit 1 Workbook</strong><span>Scientific thinking and math practice</span></div><div><strong>Physics 7 Unit 2 Workbook</strong><span>Motion and kinematics practice</span></div><div><strong>Physics 7 Unit 3 Workbook: Dynamics</strong><span>Force and Newton's laws practice</span></div><div><strong>Scientific Practices Quiz and lecture slides</strong><span>Scientific variables, conversions, and graphs</span></div><div><strong>Physics 7 Curriculum (2026–27)</strong><span>Defines included Unit 1–3 objectives</span></div></div><p class="source-warning">This review covers Units 1–3 only.</p></article></div><div class="section-heading spaced"><div><span class="eyebrow">INTERACTIVE PRACTICE</span><h2>Simulations and extra problems</h2></div></div>
+<div class="workbook-grid">
+<article class="resource-panel"><span class="topic-pill">UNIT 1 · GRAPHS</span><h2>Graphing Lines</h2><p>Explore slope and linear relationships.</p><a class="secondary-button study-link" href="https://phet.colorado.edu/en/simulations/graphing-lines" target="_blank" rel="noopener noreferrer">Open PhET simulation ↗</a></article>
+<article class="resource-panel"><span class="topic-pill">UNIT 2 · MOTION</span><h2>The Moving Man</h2><p>Connect motion to position, velocity, and acceleration graphs. Requires a compatible browser or available PhET version.</p><a class="secondary-button study-link" href="https://phet.colorado.edu/en/simulations/moving-man" target="_blank" rel="noopener noreferrer">Open PhET simulation ↗</a></article>
+<article class="resource-panel"><span class="topic-pill">UNIT 3 · FORCES</span><h2>Forces and Motion: Basics</h2><p>Explore balanced forces, acceleration, net force, and friction.</p><a class="secondary-button study-link" href="https://phet.colorado.edu/en/simulations/forces-and-motion-basics" target="_blank" rel="noopener noreferrer">Open PhET simulation ↗</a></article>
+<article class="resource-panel"><span class="topic-pill">UNIT 3 · GRAVITY</span><h2>Gravity Force Lab: Basics</h2><p>Explore how gravitational forces depend on mass and distance. Focus on concepts and proportions, not the removed two-mass force calculation.</p><a class="secondary-button study-link" href="https://phet.colorado.edu/en/simulations/gravity-force-lab-basics" target="_blank" rel="noopener noreferrer">Open PhET simulation ↗</a></article>
+<article class="resource-panel"><span class="topic-pill">UNIT 3 · SPRINGS</span><h2>Hooke's Law</h2><p>Explore spring forces. Some advanced tabs go beyond the pre-comp objectives.</p><a class="secondary-button study-link" href="https://phet.colorado.edu/en/simulations/hookes-law" target="_blank" rel="noopener noreferrer">Open PhET simulation ↗</a></article>
+<article class="resource-panel"><span class="topic-pill">OPTIONAL · ADVANCED</span><h2>500 Problems and Solutions</h2><p>A. R. King and O. Regev, <em>Physics with Answers</em>. See the mechanics sections on statics, kinematics, and Newton's Second Law. Many problems are beyond Physics 7 level. Read at Scribd; the book is copyright-protected.</p><a class="secondary-button study-link" href="https://www.scribd.com/doc/306059004/Physics-With-Answers-500-Problems-and-Solutions" target="_blank" rel="noopener noreferrer">View selected source ↗</a></article>
+</div></section>
       </main>
-      <footer class="site-footer"><span>PHYSICS 7 <span>·</span> THE REVIEW LAB</span><span>Units 1–3 only · Local-device progress · Version 1</span></footer>
+      <footer class="site-footer"><span>PHYSICS 7 <span>·</span> PRE-COMP REVIEW</span><span>Units 1–3 only · Local-device progress · Version 1</span></footer>
     </div>
   </div>
   <div id="liveStatus" class="sr-only" aria-live="polite" aria-atomic="true"></div>
