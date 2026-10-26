@@ -40,3 +40,69 @@
 .step-number{display:inline-grid;place-items:center;flex:0 0 24px;height:24px;border-radius:50%;background:#e9e6ff;color:#6555c7;font-size:11px;font-weight:800}
 .steps-next{font-size:11px;padding:10px 13px}
 @media(max-width:700px){.steps-panel{padding:13px}.step-list li{font-size:12px}.steps-head strong{font-size:14px}}
+
+
+/* Physics 7 math workshop and independent mini-lessons */
+.study-shortcuts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:24px}
+.shortcut{background:#fff;border:1px solid #e4eaf4;border-radius:14px;padding:19px;text-align:left;display:flex;gap:13px;align-items:center;color:#253651}
+.shortcut:hover{background:#f8f7ff;border-color:#a8a0ea}
+.shortcut-icon{background:#eceafe;color:#6b5ec9;border-radius:11px;width:45px;height:45px;display:grid;place-items:center;font-size:26px;font-weight:800;flex-shrink:0}
+.shortcut strong,.shortcut small{display:block}.shortcut strong{font:800 15px 'Outfit',sans-serif}.shortcut small{color:#8893a8;margin-top:5px;font-size:11px}
+.shortcut-arrow{margin-left:auto;color:#8b82c9}
+.math-layout{display:grid;grid-template-columns:minmax(230px,300px) minmax(0,1fr);gap:18px;align-items:start}
+.math-problem-list{display:grid;gap:7px;max-height:800px;overflow:auto;padding-right:5px;scrollbar-width:thin}
+.math-item{display:flex;align-items:center;gap:12px;padding:15px 13px;background:white;border:1px solid #e3e9f1;border-radius:11px;color:#293750;text-align:left;width:100%}
+.math-item.selected{border:2px solid #8272e7;background:#f8f7ff}.math-item.finished{border-color:#badfd2}
+.math-item-number{font-size:10px;letter-spacing:1px;color:#998cf0;font-weight:800}
+.math-item>span:nth-child(2){min-width:0;flex:1}.math-item strong,.math-item small{display:block}
+.math-item strong{font-size:12px}.math-item small{color:#8795aa;font-size:11px;line-height:1.45;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.math-item-status{font-size:11px;font-weight:800;color:#28a585;white-space:nowrap}
+.math-exercise{background:white;border:1px solid #e2e8f2;border-radius:16px;padding:24px;min-height:450px}
+.math-prompt h2{font:800 23px/1.35 'Outfit',sans-serif;letter-spacing:-.3px;margin:14px 0}
+.math-prompt>p{font-size:12px;color:#7b899e;line-height:1.7;margin:0 0 14px}
+.math-progress{display:flex;gap:7px;margin:22px 0 20px}
+.math-dot{height:7px;border-radius:6px;background:#e4e9f2;flex:1}
+.math-dot.passed{background:#43bca3}.math-dot.current{background:#8578dd}
+.math-step-card{background:#f8faff;border:1px solid #e3eafa;border-radius:13px;padding:21px}
+.math-step-header{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:10px;font-weight:800;color:#8977cb;letter-spacing:1px}
+.math-step-card h3{font:800 22px 'Outfit',sans-serif;margin:15px 0 6px}
+.math-step-card>p{color:#71819a;font-size:12px;line-height:1.7;margin:0 0 18px}
+.math-fields{display:grid;gap:14px}
+.math-field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px;color:#34445f}
+.math-field input,.math-field select{width:100%;min-height:45px;border:1px solid #dce4ef;border-radius:9px;background:white;padding:10px 12px;color:#24334f;font-size:13px}
+.field-feedback{border-radius:9px;margin-top:8px;padding:11px 12px;font-size:12px;line-height:1.55}
+.field-feedback strong{display:block;font-size:12px;margin-bottom:3px}
+.field-feedback.wrong{background:#fff0ec;color:#a84d42;border:1px solid #f3cfcb}
+.field-feedback.correct{background:#e8f7f0;color:#247e61;border:1px solid #c8e9d9}
+.math-hint{background:#fff9e9;color:#8b702d;padding:13px;border-radius:9px;border:1px solid #f4e7c5}
+.math-step-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:19px}
+.math-complete{background:#edf9f2;border:1px solid #c6e7d5;border-radius:13px;padding:23px}
+.math-complete strong{font:800 20px 'Outfit',sans-serif;color:#257654}
+.math-complete p{color:#52816b;font-size:13px;line-height:1.7}
+.math-session{display:flex;justify-content:space-between;color:#9aa6b8;font-size:10px;gap:10px;margin-top:18px}
+.mini-link{border:0;background:#eeebff;color:#6655bf;font-size:11px;font-weight:800;padding:10px 13px;border-radius:9px;display:inline-block;margin:6px 0 3px;text-align:left}
+.mini-link:hover{background:#e4dfff}
+.lesson-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.lesson-tile{background:#fff;border:1px solid #e5eaf3;border-radius:14px;padding:23px;text-align:left;display:flex;flex-direction:column;min-height:217px}
+.lesson-tile:hover{border-color:#9b8af1;box-shadow:0 10px 22px #24345b12;transform:translateY(-2px)}
+.lesson-tile h3{font:800 20px/1.2 'Outfit',sans-serif;color:#263651;margin:18px 0 8px}
+.lesson-tile p{font-size:12px;color:#8593a8;line-height:1.65;margin:0 0 16px}
+.lesson-tile-action{margin-top:auto;font-size:11px;color:#6d5bc8;font-weight:800}
+.lesson-detail{max-width:870px;margin:auto}
+.lesson-full{background:#fff;border-radius:18px;border:1px solid #e0e8f3;padding:clamp(22px,4vw,45px);margin:18px 0}
+.lesson-full h2{font:800 clamp(25px,3vw,36px) 'Outfit',sans-serif;margin:16px 0 8px}
+.lesson-full h3{font:800 19px 'Outfit',sans-serif;margin:27px 0 12px}
+.lesson-full p,.lesson-full li{font-size:14px;line-height:1.8;color:#55637d}
+.lesson-lead{font-size:16px!important;color:#394963!important}
+.lesson-points{display:grid;gap:8px;padding-left:22px}
+.lesson-equation{background:#f2efff;border-radius:12px;padding:20px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-top:24px}
+.lesson-equation span{font-size:10px;font-weight:800;color:#8978cb;letter-spacing:1px}
+.lesson-equation code{font:700 17px/1.4 Consolas,Monaco,monospace;color:#3f348d;white-space:normal}
+.lesson-watch{padding:17px 20px;border-left:4px solid #e5a56c;background:#fff8f0;border-radius:8px;margin:24px 0}
+.lesson-watch strong{font-size:13px;color:#a57143}
+.lesson-watch p{margin:7px 0 0}
+.lesson-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.lesson-back{margin-bottom:4px}
+@media(max-width:1100px){.lesson-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.math-layout{grid-template-columns:1fr}.math-problem-list{display:flex;overflow:auto;max-height:none;padding:3px 0 12px}.math-item{min-width:230px;max-width:270px;flex:0 0 auto}}
+@media(max-width:700px){.study-shortcuts,.lesson-grid{grid-template-columns:1fr}.math-exercise{padding:16px}.math-step-card{padding:15px}.math-prompt h2{font-size:20px}.lesson-tile{min-height:185px}.lesson-full{padding:22px}}
