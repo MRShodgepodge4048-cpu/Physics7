@@ -153,3 +153,5 @@
 .fbd-lessons{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
 @media(max-width:980px){.fbd-layout{grid-template-columns:1fr}.fbd-cases{display:flex;overflow:auto;max-height:none;padding:2px 0 10px}.fbd-case{min-width:225px;max-width:240px;flex-shrink:0}}
 @media(max-width:610px){.fbd-workbench{padding:14px}.fbd-visuals{grid-template-columns:1fr}.fbd-visuals svg{max-height:210px}.fbd-arrow-row{flex-wrap:wrap}.fbd-arrow-row label{min-width:calc(50% - 32px)}}
+
+.curated-links{display:grid;gap:4px;margin-top:15px}.curated-links a{padding:9px 0;border-bottom:1px solid #edf0f6;text-decoration:none;color:#6557bd;font-size:12px;font-weight:750;line-height:1.45}.curated-links a:hover{text-decoration:underline}.review-links-intro{font-size:12px;line-height:1.7;color:#8994a7;margin:-5px 0 18px}
