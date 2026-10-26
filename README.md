@@ -32,7 +32,7 @@ This is a static HTML/CSS/JavaScript site. No build tools, secrets, logins or we
 - `app.js` — navigation, local progress, answer checking, practice notes, printable summary
 - `math-problems.js` — 33 existing school-authored calculation questions from Units 1–3
 - `math-tutor.js` — per-step response validation and diagnostic explanations (signs, conversions, units, setup, arithmetic)
-- `mini-lessons.js` — 19 course-based concept refreshers accessible independently or from relevant problems
+- `mini-lessons.js` — 20 course-based concept refreshers accessible independently or from relevant problems
 - `steps.js` and `checks.js` — walkthroughs and solution guides for other review activities
 - `assets/position-time-2023.svg` — redrawn school review diagram
 - `.nojekyll` — GitHub Pages processing opt-out
@@ -57,6 +57,13 @@ The 29 quick checks and 40 workbook exercises each have an optional three-step e
 ## Guided Math Workshop and Mini-Lessons
 The **Math Workshop** contains 33 existing school exercises: 10 from Unit 1, 13 from Unit 2, and 10 from Unit 3. The work is checked in consecutive stages: identify givens, choose a formula or conversion, substitute quantities, calculate, and check the final unit/direction. Each incorrect entry receives targeted guidance identifying an incorrect copied value, reversed sign, wrong conversion factor, arithmetic error, or incorrect unit. Correct fields are acknowledged individually; completed steps can be expanded again for review. Work and step progress are saved locally.
 
-The **Mini-Lessons** area contains 19 brief concept refreshers (7 Unit 1, 5 Unit 2, 7 Unit 3). **Students can browse and open lessons at any time without needing to answer a question incorrectly.** Lessons are additionally linked from quick checks, workbook exercises and the Math Workshop. A return button takes the student back to the previous practice screen, with work preserved.
+The **Mini-Lessons** area contains 20 brief concept refreshers (7 Unit 1, 5 Unit 2, 8 Unit 3). **Students can browse and open lessons at any time without needing to answer a question incorrectly.** Lessons are additionally linked from quick checks, workbook exercises and the Math Workshop. A return button takes the student back to the previous practice screen, with work preserved.
 
 Numeric checking is deterministic with a small precision tolerance where appropriate. It checks the specified stage, not arbitrary equivalent algebra, so a mathematically valid but differently written method might need the student to map their numbers into the labeled boxes. Essay and diagram responses are guided self-checks, not claimed to be reliably auto-graded.
+
+
+## Source-based free-body diagram practice
+The **Force diagrams** section contains all **18 LM-1–LM-18** situations from the uploaded *Free-Body Exercises: Linear Motion* worksheet (J. E. Court, *The Physics Teacher*, October 1999), with original clean SVG redrawings and paraphrased prompts. This includes level surfaces, inclines, ropes, falling objects and projectile-path snapshots because they appear in the worksheet's Linear Motion section. The unrelated Circular Motion, Rotational Equilibrium and Rotational Non-equilibrium sections were excluded. Students add and label force arrows, choose directions, receive feedback for missing/incorrect/duplicate arrows, and classify whether forces balance and the net-force direction. Progress is saved locally. Force-arrow lengths are illustrative relative cues; only force identity and direction, and net-force reasoning, are graded. This is not a copyrighted scan republished in the web page. The site also includes a new independent free-body diagram mini-lesson.
+
+## From the school comprehensive-review resources PDF
+The Resources page includes 15 original links from the uploaded *Physics 7 Comp Review Resources* (May 2026), selecting only 1D Kinematics and Newton's Laws / Forces sections relevant to the Units 1–3 pre-comp. Those pages remain externally hosted, without copying copyrighted external material.
