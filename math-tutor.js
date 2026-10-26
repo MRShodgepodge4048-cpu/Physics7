@@ -30,7 +30,7 @@ weight:"Fg = mg",
 normal:"Fn = Fg (balanced vertically)"
 };
 const equationChoices=Object.values(equations);
-const unitOptions=["N","kg","m","km","mm","μm","L","mL","s","min","h","m/s","km/h","m/min","m/s²","N/kg"];
+const unitOptions=["N","kg","g","m","km","mm","μm","L","mL","s","min","h","m/s","km/h","m/min","m/s²","N/kg"];
 const directionOptions=["right","left","up","down","north","south","east","west"];
 const given=(key,label,expected)=>number(key,label,expected,
  "Re-read the question and check which physical quantity this number belongs to.",
