@@ -106,3 +106,5 @@
 @media(max-width:1100px){.lesson-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:900px){.math-layout{grid-template-columns:1fr}.math-problem-list{display:flex;overflow:auto;max-height:none;padding:3px 0 12px}.math-item{min-width:230px;max-width:270px;flex:0 0 auto}}
 @media(max-width:700px){.study-shortcuts,.lesson-grid{grid-template-columns:1fr}.math-exercise{padding:16px}.math-step-card{padding:15px}.math-prompt h2{font-size:20px}.lesson-tile{min-height:185px}.lesson-full{padding:22px}}
+
+.lesson-grid[hidden],.lesson-detail[hidden]{display:none!important}
