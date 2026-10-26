@@ -176,10 +176,14 @@ function renderMath(){
    return '<div class="math-field"><label for="math-'+esc(f.key)+'">'+esc(f.label)+'</label>'+control+feedback+'</div>';
   }).join("");
  }
+ const finishedSteps=steps.slice(0,Math.min(w.stage,steps.length)).map((part,i)=>{
+  const checked=part.fields.map(field=>'<span>'+esc(field.label)+': <strong>'+esc(w.values[field.key]??field.expected)+'</strong></span>').join("");
+  return '<details class="math-reviewed"><summary>✓ Step '+(i+1)+': '+esc(part.title)+'</summary><div>'+checked+'</div></details>';
+ }).join("");
  const stageDots=steps.map((x,i)=>'<span class="math-dot '+(i<w.stage?"passed":i===w.stage?"current":"")+'" title="'+esc(x.title)+'"></span>').join("");
  const panel=complete?'<div class="math-complete"><strong>Calculation completed ✓</strong><p>You checked every part of your work, including the equation, numbers, units, and direction where needed.</p><button type="button" class="secondary-button" data-math-restart="'+p.id+'">Practice this problem again</button></div>':
    '<div class="math-step-card"><div class="math-step-header"><span>STEP '+(ix+1)+' OF '+steps.length+'</span><span>'+esc(part.title)+'</span></div><h3>'+esc(part.title)+'</h3><p>'+esc(part.intro)+'</p><div class="math-fields">'+inputHtml+'</div>'+(w.hint?'<p class="math-hint">'+esc(part.fields.map(f=>f.hint).filter(Boolean).join(" "))+'</p>':"")+'<div class="math-step-actions"><button type="button" class="primary-button" data-math-check="'+p.id+'">Check this step →</button><button type="button" class="secondary-button" data-math-hint="'+p.id+'">'+(w.hint?"Hide hint":"Need a hint?")+'</button></div></div>';
- host.innerHTML='<div class="math-prompt"><span class="topic-pill">UNIT '+p.unit+' · '+esc(p.topic)+'</span><h2>'+esc(p.q)+'</h2><p>Complete each step in order. When an answer needs correcting, you will see exactly where to revisit your work.</p>'+(lesson?'<button type="button" class="mini-link" data-open-lesson="'+lesson.id+'" data-from-view="math">Review this concept: '+esc(lesson.title)+' ↗</button>':"")+'</div><div class="math-progress">'+stageDots+'</div>'+panel+
+ host.innerHTML='<div class="math-prompt"><span class="topic-pill">UNIT '+p.unit+' · '+esc(p.topic)+'</span><h2>'+esc(p.q)+'</h2><p>Complete each step in order. When an answer needs correcting, you will see exactly where to revisit your work.</p>'+(lesson?'<button type="button" class="mini-link" data-open-lesson="'+lesson.id+'" data-from-view="math">Review this concept: '+esc(lesson.title)+' ↗</button>':"")+'</div><div class="math-progress">'+stageDots+'</div>'+finishedSteps+panel+
  '<div class="math-session"><span>Your work is saved on this device.</span><span>'+(complete?"Completed":(w.stage+" steps checked"))+'</span></div>';
 }
 function gradeCurrent(id){
