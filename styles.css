@@ -108,3 +108,9 @@
 @media(max-width:700px){.study-shortcuts,.lesson-grid{grid-template-columns:1fr}.math-exercise{padding:16px}.math-step-card{padding:15px}.math-prompt h2{font-size:20px}.lesson-tile{min-height:185px}.lesson-full{padding:22px}}
 
 .lesson-grid[hidden],.lesson-detail[hidden]{display:none!important}
+
+.math-reviewed{background:white;border:1px solid #e5eaf2;border-radius:10px;margin-bottom:8px}
+.math-reviewed summary{cursor:pointer;color:#32896b;font-weight:800;font-size:12px;padding:12px 14px}
+.math-reviewed>div{display:grid;gap:7px;border-top:1px solid #e5eaf2;padding:12px 14px}
+.math-reviewed span{font-size:11px;color:#63718a;line-height:1.6}
+.math-reviewed strong{color:#273b59}
