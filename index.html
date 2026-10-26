@@ -13,6 +13,8 @@
   <script defer src="math-problems.js"></script>
   <script defer src="mini-lessons.js"></script>
   <script defer src="math-tutor.js"></script>
+  <script defer src="fbd-exercises.js"></script>
+  <script defer src="fbd-studio.js"></script>
   <script defer src="app.js"></script>
 </head>
 <body>
@@ -29,6 +31,7 @@
         <button type="button" class="nav-link" data-view="practice"><span class="nav-icon">◎</span> Quick checks <span class="nav-count" id="navQuizCount"></span></button>
         <button type="button" class="nav-link" data-view="math"><span class="nav-icon">∑</span> Math workshop <span class="nav-count">33</span></button>
         <button type="button" class="nav-link" data-view="lessons"><span class="nav-icon">◧</span> Mini-lessons <span class="nav-count">19</span></button>
+        <button type="button" class="nav-link" data-view="fbd"><span class="nav-icon">⇢</span> Force diagrams <span class="nav-count">18</span></button>
         <button type="button" class="nav-link" data-view="workbook"><span class="nav-icon">✎</span> Skill practice</button>
         <button type="button" class="nav-link" data-view="mistakes"><span class="nav-icon">↺</span> Retry missed</button>
         <button type="button" class="nav-link" data-view="resources"><span class="nav-icon">▤</span> Study resources</button>
@@ -70,6 +73,7 @@
           </div>
 
           <div class="study-shortcuts"><button type="button" class="shortcut" data-view="math"><span class="shortcut-icon">∑</span><span><strong>Practice calculations</strong><small>33 problems with step-by-step checks</small></span><span class="shortcut-arrow">↗</span></button><button type="button" class="shortcut" data-view="lessons"><span class="shortcut-icon">◧</span><span><strong>Review a concept</strong><small>19 mini-lessons with class examples</small></span><span class="shortcut-arrow">↗</span></button></div>
+          <div class="study-shortcuts fbd-shortcut"><button type="button" class="shortcut" data-view="fbd"><span class="shortcut-icon">⇢</span><span><strong>Practice free-body diagrams</strong><small>18 original Linear Motion worksheet cases</small></span><span class="shortcut-arrow">↗</span></button></div>
           <div class="section-heading spaced"><div><span class="eyebrow">REVIEW BY UNIT</span><h2>Explore the three units <span class="heading-spark">✳</span></h2></div></div>
           <div class="unit-grid">
             <button type="button" class="unit-card" data-action="unit" data-choose-unit="1"><span class="unit-tag">UNIT 01</span><span class="unit-illustration math" aria-hidden="true"><span class="math-symbol">x/y</span><span class="gridlines"></span></span><span class="unit-title">Math Skills<br>&amp; Lab Skills</span><span class="unit-description">Metric units, conversions, proportional reasoning, graphs, and experiments.</span><span class="unit-cta">Review this unit <span>↗</span></span></button>
@@ -105,6 +109,11 @@
   <label class="search-label" for="lessonSearch">Find a lesson<input id="lessonSearch" type="search" placeholder="Search topics…"></label></div>
   <div id="lessonGrid" class="lesson-grid"></div>
   <div id="lessonDetail" class="lesson-detail" hidden></div>
+</section>
+<section id="fbdView" class="view" hidden>
+  <div class="page-intro"><span class="eyebrow">UNIT 3 · INTERACTIVE FORCE DIAGRAMS</span><h1>Free-body diagrams<span class="period">.</span></h1><p>Build force-arrow diagrams using the original worksheet's Linear Motion situations, including inclined surfaces. Check each arrow and explain the net force. Circular and rotational exercises are reserved for later courses.</p></div>
+  <div class="toolbar"><label for="fbdFilter">Choose a type<select id="fbdFilter"><option value="all">All 18 diagrams</option><option value="balanced">Equilibrium</option><option value="unbalanced">Unbalanced forces</option></select></label><div class="fbd-help">Each diagram represents <strong>only the forces acting on the rock</strong>.</div></div>
+  <div class="fbd-layout"><aside id="fbdCaseList" class="fbd-cases" aria-label="Free-body diagram exercises"></aside><div id="fbdWorkbench" class="fbd-workbench"></div></div>
 </section>
 <section id="mistakesView" class="view" hidden><div class="page-intro"><span class="eyebrow">TURN MISSTEPS INTO MASTERY</span><h1>Retry missed<span class="period">.</span></h1><p>Review previously missed quick checks. Reaching the correct answer clears the question from this list.</p></div><div id="missedList" class="missed-list"></div></section>
 
