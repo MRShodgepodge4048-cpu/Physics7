@@ -36,7 +36,7 @@ function renderQuiz(){
  }).join("");
  const msg=feedback[q.id]||(result.passed?"Correct! Nice work.":result.attempted?"Not quite. Try a different answer.":"");
  const fb=msg?'<div class="feedback '+(result.passed?"correct":"incorrect")+'" role="status"><strong>'+(result.passed?"Nice work!":"Keep going.")+'</strong>'+safe(msg)+(result.passed&&result.attempted&&!result.firstCorrect?'<div>Corrected after your first attempt.</div>':"")+'</div>':"";
- area.innerHTML='<div class="question-topline"><span class="topic-pill">UNIT '+q.unit+' · '+safe(q.topic)+'</span><span class="source-code">PRACTICE · '+q.slide+'</span></div><h2>'+safe(q.q)+'</h2><div class="option-list">'+options+'</div>'+(multi&&!result.passed?'<button type="button" class="primary-button" style="margin-top:16px" id="checkMultiple" '+(choices.length?"":"disabled")+' >Check selected answers →</button>':"")+fb;
+ area.innerHTML='<div class="question-topline"><span class="topic-pill">UNIT '+q.unit+' · '+safe(q.topic)+'</span><span class="source-code">PRACTICE QUESTION</span></div><h2>'+safe(q.q)+'</h2><div class="option-list">'+options+'</div>'+(multi&&!result.passed?'<button type="button" class="primary-button" style="margin-top:16px" id="checkMultiple" '+(choices.length?"":"disabled")+' >Check selected answers →</button>':"")+fb;
  $("#sourceAside").textContent="Work through the problem first, then check your answer. Try again if needed.";
 }
 function grade(q,selection){
