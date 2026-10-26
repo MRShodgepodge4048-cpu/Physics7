@@ -71,7 +71,7 @@ function render(){
  const end=s.complete?'<div class="fbd-done"><strong>All correct ✓</strong><p>'+esc(p.why)+'</p><button type="button" class="secondary-button" data-fbd-restart="'+p.id+'">Try again</button></div>':"";
  box.innerHTML='<div class="fbd-prompt"><span class="topic-pill">UNIT 3 · '+p.id+'</span><h2>'+esc(p.title)+'</h2><p>'+esc(p.question)+'</p><small>Draw only forces acting on the rock. Symbols: w = Fg, n = Fn, f = Ff, T = tension.</small></div>'+
  '<div class="fbd-visuals"><div><strong>Situation</strong>'+scene(p)+'</div><div><strong>Your free-body diagram</strong>'+drawing(p,s)+'</div></div><section class="fbd-controls"><h3>Draw the force arrows</h3><p>Add a force and choose its direction. The diagram updates as you work.</p>'+rows+'<div class="fbd-buttons"><button type="button" class="secondary-button" data-fbd-add="'+p.id+'">+ Add arrow</button><button type="button" class="primary-button" data-fbd-check="'+p.id+'">Check diagram →</button></div>'+feedback+'</section>'+reasoning+end+
- '<div class="fbd-lessons"><button type="button" class="mini-link" data-open-lesson="forces" data-from-view="fbd">Review force diagrams ↗</button><button type="button" class="mini-link" data-open-lesson="net" data-from-view="fbd">Review net force ↗</button></div>';
+ '<div class="fbd-lessons"><button type="button" class="mini-link" data-open-lesson="fbd" data-from-view="fbd">Review force diagrams ↗</button><button type="button" class="mini-link" data-open-lesson="net" data-from-view="fbd">Review net force ↗</button></div>';
 }
 function onClick(e){
  const b=e.target.closest("button");if(!b)return;
