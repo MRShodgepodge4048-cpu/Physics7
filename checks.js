@@ -57,5 +57,20 @@ window.PHYSICS7_CHECKS = {
  {label:"6.64 cs → μs",value:66400,display:"66,400 μs"}]},
  schoollab4:{guide:"Independent variable: amount of food given per cat. Dependent variable: measured change in cat weight. Possible controls include same observation period, frequency of feeding and regular weighing schedule. Graph: food amount on horizontal axis, cat weight (or weight change) on vertical axis. Different cats can be a confounding factor; review with teacher."},
  schoollab5:{guide:"Graph week on the x-axis and height (cm) on the y-axis. Plot (1,2), (2,5), (3,8), (4,11), (5,14) from the school-provided table. Connect them in week order to show increasing height. Check axes have units."},
+
+ num01:{guide:"milli = 10^-3: 978.42 mL × (1 L / 1000 mL) = 0.97842 L.",fields:[{label:"Volume (L)",value:0.97842,display:"0.97842 L"}]},
+ num02:{guide:"centi = 10^-2 and Mega = 10^6: 14.57 cs = 0.1457 s = 1.457 × 10^-7 Ms.",fields:[{label:"Time (Ms)",value:1.457e-7,display:"0.0000001457 Ms"}]},
+ num03:{guide:"1 day = 24 h; 1 h = 3600 s. 60 days × 24 × 3600 = 5,184,000 seconds.",fields:[{label:"Time (s)",value:5184000,display:"5,184,000 s"}]},
+ num04:{guide:"1 m = 1,000,000 μm.",fields:[{label:"Length (μm)",value:24000,display:"24,000 μm"}]},
+ num05:{guide:"1 hm = 100 m.",fields:[{label:"Length (m)",value:157.4,display:"157.4 m"}]},
+ num06:{guide:"1 km = 1000 m.",fields:[{label:"Length (km)",value:0.00754,display:"0.00754 km"}]},
+ num07:{guide:"1 meter = 10 decimeters.",fields:[{label:"Length (dm)",value:15240,display:"15,240 dm"}]},
+ num08:{guide:"Mega = 10^6.",fields:[{label:"Time (s)",value:87000000,display:"87,000,000 s"}]},
+ num09:{guide:"micro = 10^-6. 1 A = 1,000,000 µA.",fields:[{label:"Current (µA)",value:520000,display:"520,000 µA"}]},
+ num10:{guide:"10 mm = 1 cm.",fields:[{label:"Length (cm)",value:3.14,display:"3.14 cm"}]},
+ num11:{guide:"1 hm = 100 m, and 1 m = 10 dm.",fields:[{label:"Length (dm)",value:4650,display:"4,650 dm"}]},
+ num12:{guide:"a = (vf - vi) / t = (2 - 10) / 6 = -1.33 m/s². The negative sign means acceleration opposite the chosen positive direction.",fields:[{label:"Acceleration (m/s²)",value:-1.333333333,tolerance:0.02,display:"-1.33 m/s²"}]},
+ num13:{guide:"On Earth Fg = mg: 54 × 9.8 = 529.2 N (about 529 N). Some original class slides use g = 10 m/s² for mental arithmetic, giving 540 N. On the Moon, 54 × 1.6 = 86.4 N.",fields:[{label:"B. Weight on Moon (N)",value:86.4,display:"86.4 N"}]},
+ num14:{guide:"Fnet = ma = 3.6 × 7.1 = 25.56 N, or 25.6 N rounded to one decimal place.",fields:[{label:"Net force (N)",value:25.56,tolerance:0.05,display:"25.56 N ≈ 25.6 N"}]},
  schoolunits1:{guide:"1 mm = 0.001 m, so 54 mm = 54 × 0.001 m.",fields:[{label:"54 mm → m",value:0.054,display:"0.054 m"}]}
 };
