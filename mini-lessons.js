@@ -1,4 +1,4 @@
-/* Physics 7 mini-lessons grounded in the supplied workbooks and summer packet. */
+/* Physics 7 mini-lessons from course documents and source study packets. */
 window.PHYSICS7_LESSONS = [
   {
     "id": "measurements",
@@ -375,5 +375,24 @@ window.PHYSICS7_LESSONS = [
     "practiceIds": [
       "p29"
     ]
+  },
+  {
+    "id": "fbd",
+    "unit": 3,
+    "title": "Drawing free-body diagrams",
+    "lead": "Represent all real forces acting on one chosen object with labeled arrows, then use the diagram to reason about motion.",
+    "points": [
+      "Choose one object: in our worksheet, it's always the rock.",
+      "List the interactions: weight points vertically down, tension follows the rope, normal force points perpendicular to the contact surface, and friction opposes relative sliding or the tendency to slide.",
+      "Draw each real force as an arrow starting at the chosen object; longer arrows indicate greater magnitude when that information is known.",
+      "Never add separate 'velocity,' 'acceleration,' or 'force of motion' arrows: these are not additional interactions.",
+      "Check whether the force arrows balance. If the net force is zero the object has zero acceleration, even when moving at constant velocity.",
+      "Use the net force direction to explain the object's acceleration; a force diagram does not automatically point in the direction of its velocity."
+    ],
+    "formula": "Fnet = sum of signed forces along the chosen axis",
+    "example": "Original worksheet LM-2: a rock hanging at rest needs upward tension (T) and downward weight (Fg) of equal size. LM-9: a frictionless incline has gravity down and a normal force perpendicular to the slope; the resultant points downhill.",
+    "pitfall": "Confusing velocity with a force, drawing friction when the problem says frictionless, or pointing a normal force vertically upward on an inclined surface.",
+    "workbookId": "w3a",
+    "practiceIds": []
   }
 ];
