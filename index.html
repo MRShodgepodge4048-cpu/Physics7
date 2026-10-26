@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles.css">
   <script defer src="questions.js"></script>
   <script defer src="checks.js"></script>
+  <script defer src="steps.js"></script>
   <script defer src="app.js"></script>
 </head>
 <body>
@@ -73,13 +74,13 @@
         </section>
 
         <section id="practiceView" class="view" hidden>
-          <div class="page-intro"><span class="eyebrow">ACTIVE RECALL</span><h1>Quick checks<span class="period">.</span></h1><p>Practice multiple-choice questions by unit or topic. You can retry questions you miss.</p></div>
+          <div class="page-intro"><span class="eyebrow">ACTIVE RECALL</span><h1>Quick checks<span class="period">.</span></h1><p>Practice multiple-choice questions by unit or topic. Reveal hints one step at a time, check your answer, and retry anything you miss.</p></div>
           <div class="toolbar"><label for="quizUnit">Unit <select id="quizUnit"><option value="all">All units</option><option value="1">Unit 1 · Math + Lab</option><option value="2">Unit 2 · Kinematics</option><option value="3">Unit 3 · Dynamics</option></select></label><label for="quizTopic">Topic <select id="quizTopic"><option value="all">All topics</option></select></label><label class="search-label" for="quizSearch">Find a question <input id="quizSearch" placeholder="Search concepts or questions…" type="search"></label></div>
           <div class="quiz-layout"><div class="question-column"><div class="quiz-navigation"><span id="quizPosition">Question 1 of 1</span><div class="quiz-dots" id="quizDots" aria-label="Question selection"></div></div><div class="question-area" id="quizArea"></div><div class="question-controls"><button type="button" id="prevQuestion" class="secondary-button">← Previous</button><button type="button" id="nextQuestion" class="primary-button">Next question →</button></div></div><aside class="quiz-aside"><div class="info-panel"><span class="eyebrow">HOW THIS WORKS</span><h3>Practice, not pressure.</h3><p>Check your answers as you go. Your first attempt counts toward your study accuracy, and you can always try again.</p></div><div class="info-panel compact"><span class="eyebrow">STUDY TIP</span><p id="sourceAside">Take your time. Use scrap paper for calculations and always include units.</p></div><div class="info-panel compact"><span class="eyebrow">ADDITIONAL QUESTIONS</span><p>Want to practice more?</p><a class="study-link" href="https://www.helpteaching.com/questions/physics/grade_7" target="_blank" rel="noopener noreferrer">Grade 7 physics questions ↗</a></div></aside></div>
         </section>
 
         <section id="workbookView" class="view" hidden>
-          <div class="page-intro"><span class="eyebrow">PRACTICE THE PROCESS</span><h1>Skill practice<span class="period">.</span></h1><p>Review calculations and written responses from class. Enter your work, check numerical answers, or compare explanations to a solution guide.</p></div>
+          <div class="page-intro"><span class="eyebrow">PRACTICE THE PROCESS</span><h1>Skill practice<span class="period">.</span></h1><p>Review calculations and written responses from class. Work through the steps one at a time, check numerical answers, or compare your explanation to the solution guide.</p></div>
           <div class="toolbar"><label for="workUnit">Unit <select id="workUnit"><option value="all">All units</option><option value="1">Unit 1 · Math + Lab</option><option value="2">Unit 2 · Kinematics</option><option value="3">Unit 3 · Dynamics</option></select></label><label for="workTopic">Topic <select id="workTopic"><option value="all">All topics</option></select></label></div>
           <div class="solve-method"><div><span class="eyebrow">A GOOD WAY TO APPROACH A PHYSICS PROBLEM</span><h2>Known → Wanted → Equation → Solve → Check</h2><p>Identify what you know, decide what you need to find, choose an equation, show your algebra, and check units and direction. A quick sketch can help with motion and force problems.</p></div><a class="secondary-button study-link" href="https://www.lehman.edu/faculty/dgaranin/Introductory_Physics/Introductory_Physics-Problem_solving.pdf#page=2" target="_blank" rel="noopener noreferrer">More problem-solving tips ↗</a></div>
           <div id="workbookCards" class="workbook-grid"></div>
