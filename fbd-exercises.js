@@ -1,4 +1,4 @@
-/* Clean, interactive interpretations of LM-1 through LM-18 in uploaded Free-Body Exercises: Linear Motion, pp. 1–4. */
+/* Free-body cases transcribed from Linear Motion worksheet LM-1–LM-18. Arrow directions and lengths schematic. */
 window.PHYSICS7_FBD = [
   {
     "id": "LM-1",
@@ -111,23 +111,23 @@ window.PHYSICS7_FBD = [
     "arrows": [
       {
         "force": "T1",
-        "dir": "NW",
-        "length": 67
+        "dir": "NWsteep",
+        "length": 90
       },
       {
         "force": "T2",
-        "dir": "NE",
-        "length": 50
+        "dir": "NE26",
+        "length": 53
       },
       {
         "force": "Fg",
         "dir": "S",
-        "length": 81
+        "length": 100
       }
     ],
     "balance": "balanced",
     "net": "none",
-    "why": "Two separate tensions act along the differently angled ropes. Rope lengths do not determine force sizes.",
+    "why": "The steeper left rope exerts a force pointing up-left; the shallower right rope points up-right. The horizontal components cancel, and the upward components balance weight. Arrow lengths are schematic.",
     "page": "p1"
   },
   {
@@ -155,7 +155,7 @@ window.PHYSICS7_FBD = [
   {
     "id": "LM-7",
     "title": "Rock tethered on an incline",
-    "question": "A rock is held at rest on an incline by a rope parallel to the slope.",
+    "question": "A rock is held at rest on a frictionless incline by a rope parallel to the incline.",
     "scene": "tethered-slope",
     "arrows": [
       {
@@ -176,7 +176,7 @@ window.PHYSICS7_FBD = [
     ],
     "balance": "balanced",
     "net": "none",
-    "why": "Tension pulls uphill, normal force is perpendicular to the slope, and weight points vertically down.",
+    "why": "On the frictionless incline, tension pulls uphill, the normal force is perpendicular to the slope, and weight points vertically down. No friction acts.",
     "page": "p1"
   },
   {
@@ -375,50 +375,55 @@ window.PHYSICS7_FBD = [
   {
     "id": "LM-17",
     "title": "Angled rope, constant horizontal speed",
-    "question": "A rock is pulled by an upward-right angled rope along a horizontal surface at constant velocity. Friction acts.",
+    "question": "A rock slides along a horizontal surface at constant speed while a rope pulls upward and to the right. Kinetic friction acts at the surface, which remains in contact with the rock.",
     "scene": "angled-pull",
     "arrows": [
       {
         "force": "T",
-        "dir": "NE",
-        "length": 87
+        "dir": "NE26",
+        "length": 70
       },
       {
         "force": "Ff",
         "dir": "W",
-        "length": 62
+        "length": 63
+      },
+      {
+        "force": "Fn",
+        "dir": "N",
+        "length": 69
       },
       {
         "force": "Fg",
         "dir": "S",
-        "length": 71
+        "length": 100
       }
     ],
     "balance": "balanced",
     "net": "none",
-    "why": "The angled pull balances friction horizontally and weight vertically. The source's idealized setup has no surface normal force.",
+    "why": "The surface exerts an upward normal force, gravity acts downward, friction left, and angled tension up-right. For constant velocity, horizontal and vertical components balance. Directions and lengths here are schematic.",
     "page": "p2"
   },
   {
     "id": "LM-18",
     "title": "Angled rope, horizontal acceleration",
-    "question": "A rock is pulled by an upward-right angled rope and accelerates horizontally at 2g. No friction.",
+    "question": "A rock is pulled by a rope angled upward and right so that it accelerates horizontally right at 2g, with zero vertical acceleration. Neglect friction.",
     "scene": "angled-pull",
     "arrows": [
       {
         "force": "T",
-        "dir": "NE",
-        "length": 93
+        "dir": "NE26",
+        "length": 100
       },
       {
         "force": "Fg",
         "dir": "S",
-        "length": 52
+        "length": 45
       }
     ],
     "balance": "unbalanced",
     "net": "E",
-    "why": "The vertical effects balance while the net horizontal force points right. The worksheet notes horizontal acceleration of 2g.",
+    "why": "Tension points about 26.6° above horizontal: its horizontal component is 2mg while its upward component equals mg. Thus the horizontal net force is 2mg to the right and the vertical net force is zero. The diagram arrows are schematic (not exact scale).",
     "page": "p2"
   }
 ];
