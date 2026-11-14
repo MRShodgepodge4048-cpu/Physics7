@@ -48,6 +48,7 @@ function renderQuiz(){
  index=Math.max(0,Math.min(index,total-1));const q=questions[index],result=history[q.id]||{},multi=Array.isArray(q.answer),choices=selectedMulti[q.id]||[];
  $("#quizPosition").textContent=`Question ${index+1} of ${total}`;
  dots.innerHTML=questions.map((other,i)=>'<button type="button" aria-label="Go to question '+(i+1)+'" data-dot="'+i+'" class="'+(i===index?"active ":"")+(history[other.id]?.passed?"done":"")+'"></button>').join("");
+ const multiReminder=multi?'<p class="quiz-multi-reminder">Select all correct choices. More than one answer may be right. Then press Check selected answers.</p>':"";
  const options=q.options.map((item,i)=>{
   const chosen=multi?choices.includes(i):result.last===i;
   const correct=result.passed&&(multi?q.answer.includes(i):q.answer===i);
@@ -56,7 +57,7 @@ function renderQuiz(){
  }).join("");
  const msg=feedback[q.id]||(result.passed?"Correct! Nice work.":result.attempted?"Not quite. Try a different answer.":"");
  const fb=msg?'<div class="feedback '+(result.passed?"correct":"incorrect")+'" role="status"><strong>'+(result.passed?"Nice work!":"Keep going.")+'</strong>'+safe(msg)+(result.passed&&result.attempted&&!result.firstCorrect?'<div>Corrected after your first attempt.</div>':"")+'</div>':"";
- area.innerHTML='<div class="question-topline"><span class="topic-pill">UNIT '+q.unit+' · '+safe(q.topic)+'</span><span class="source-code">PRACTICE QUESTION</span></div><h2>'+safe(q.q)+'</h2><div class="option-list">'+options+'</div>'+(multi&&!result.passed?'<button type="button" class="primary-button" style="margin-top:16px" id="checkMultiple" '+(choices.length?"":"disabled")+' >Check selected answers →</button>':"")+fb+stepsPanel("quizzes",q.id)+'<button type="button" class="mini-link" data-open-lesson="'+window.PHYSICS_WORKSHOP.relatedLesson(q.unit,q.topic)+'" data-from-view="practice">Review this concept ↗</button>';
+ area.innerHTML='<div class="question-topline"><span class="topic-pill">UNIT '+q.unit+' · '+safe(q.topic)+'</span><span class="source-code">PRACTICE QUESTION</span></div><h2>'+safe(q.q)+'</h2>'+multiReminder+'<div class="option-list">'+options+'</div>'+(multi&&!result.passed?'<button type="button" class="primary-button" style="margin-top:16px" id="checkMultiple" '+(choices.length?"":"disabled")+' >Check selected answers →</button>':"")+fb+stepsPanel("quizzes",q.id)+'<button type="button" class="mini-link" data-open-lesson="'+window.PHYSICS_WORKSHOP.relatedLesson(q.unit,q.topic)+'" data-from-view="practice">Review this concept ↗</button>';
  $("#sourceAside").textContent="Work through the problem first, then check your answer. Try again if needed.";
 }
 function grade(q,selection){
