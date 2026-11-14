@@ -87,7 +87,9 @@ function compareValue(field,raw){
   if(expectedUnit&&normalizedUnit(match[2])!==normalizedUnit(expectedUnit))return false;
  }
  const got=Number(match[1]),expected=field.value;
- return Number.isFinite(got)&&Math.abs(got-expected)<=Math.max(field.tolerance??0,Math.abs(expected)*1e-7,1e-11);
+ if(!Number.isFinite(got))return false;
+ if(Array.isArray(field.acceptedValues)&&field.acceptedValues.some(x=>Math.abs(got-x)<0.001))return true;
+ return Math.abs(got-expected)<=Math.max(field.tolerance??0,Math.abs(expected)*1e-7,1e-11);
 }
 function renderWork(){
  const list=getWork();
