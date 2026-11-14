@@ -1,4 +1,4 @@
-/* Question bank from Physics 7 school review materials; answer indices use zero-based positions. */
+/* Audited school question bank. */
 window.PHYSICS7 = {
   "quizzes": [
     {
@@ -607,7 +607,7 @@ window.PHYSICS7 = {
       "unit": 3,
       "topic": "Newton's laws",
       "source": "Physics 7 Pre-Comp Review (2023) · White Boards",
-      "q": "What is the net force (N) on a 3.6 kg block of wood that accelerates at 7.1 m/s²? Report to the nearest hundredth or nearest tenth."
+      "q": "What is the net force on a 3.6 kg block of wood accelerating at 7.1 m/s²? Report your answer unrounded, to the nearest tenth, or to two significant figures."
     },
     {
       "id": "w2a",
