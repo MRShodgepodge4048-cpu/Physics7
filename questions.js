@@ -1,4 +1,4 @@
-/* Audited school question bank. */
+/* School-sourced Physics 7 questions with audit clarifications. */
 window.PHYSICS7 = {
   "quizzes": [
     {
@@ -439,7 +439,7 @@ window.PHYSICS7 = {
       "unit": 1,
       "topic": "SI units",
       "source": "Unit 1 Workbook · Worksheet 1.2 · Question 1",
-      "q": "Which of the following listed units are SI base units? Circle all that apply. (This list contains four of the seven SI base units.)\nm      kg     m/s     s     K     m²"
+      "q": "Which listed units are SI base units? Write all correct choices in the notes box. (These are four of the seven SI base units.)\nm      kg     m/s     s     K     m²"
     },
     {
       "id": "w1e",
