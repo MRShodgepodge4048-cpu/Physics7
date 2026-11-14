@@ -4,8 +4,8 @@
 const cases=window.PHYSICS7_FBD||[];
 const $=q=>document.querySelector(q);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const dirs={N:[0,-1],NE:[.707,-.707],E:[1,0],SE:[.707,.707],S:[0,1],SW:[-.707,.707],W:[-1,0],NW:[-.707,-.707]};
-const dirNames={N:"Up",NE:"Up-right",E:"Right",SE:"Down-right",S:"Down",SW:"Down-left",W:"Left",NW:"Up-left"};
+const dirs={N:[0,-1],NE:[.707,-.707],NE26:[.894427,-.447214],NWsteep:[-.526,-.850],E:[1,0],SE:[.707,.707],S:[0,1],SW:[-.707,.707],W:[-1,0],NW:[-.707,-.707]};
+const dirNames={N:"Up",NE:"Up-right (45°)",NE26:"Up-right (about 26.6°)",NWsteep:"Steep up-left",E:"Right",SE:"Down-right",S:"Down",SW:"Down-left",W:"Left",NW:"Up-left (45°)"};
 const forceNames={Fg:"Weight / gravity (Fg)",Fn:"Normal force (Fn)",Ff:"Friction (Ff)",Fair:"Air resistance (Fair)",T:"Tension (T)",T1:"Tension: rope 1 (T1)",T2:"Tension: rope 2 (T2)",Fn1:"Normal: surface 1 (Fn1)",Fn2:"Normal: surface 2 (Fn2)"};
 const key="physics7_fbd_v1";
 let memory={};try{memory=JSON.parse(localStorage.getItem(key))||{};}catch(e){}
@@ -24,7 +24,7 @@ function scene(p){
  if(type==="v-ropes")shapes+=line(80,19,200,105)+line(200,105,318,19);
  if(type==="unequal-ropes")shapes+=line(143,16,200,105)+line(200,105,351,33);
  if(type==="tethered-slope")shapes+=line(72,38,194,108);
- if(type==="angled-pull")shapes+=line(202,106,350,37);
+ if(type==="angled-pull"){shapes+=line(202,106,350,37);if(p.id==="LM-17")shapes+=line(66,137,338,137);}
  if(type==="projectile-up"||type==="projectile-top"){shapes+='<path d="M61 190 Q210 -65 345 195" fill="none" stroke="#a8b7cb" stroke-dasharray="8 7" stroke-width="3"/>';cx=type==="projectile-top"?210:131;cy=type==="projectile-top"?51:113;}
  if(["falling","terminal","floor-moving"].includes(type))shapes+='<path d="M90 66 H132 M103 80 H132 M85 93 H132" stroke="#bccbdc" stroke-width="3" stroke-linecap="round"/>';
  const rock='<g transform="translate('+cx+' '+cy+')"><path d="M-21 -12 L-6 -20 L14 -13 L22 5 L9 19 L-15 15 L-22 -2 Z" fill="#e4deff" stroke="#7d6dd0" stroke-width="2.5"/><circle r="4" fill="#665ac0"/></g>';
@@ -69,7 +69,7 @@ function render(){
  const feedback=s.feedback?'<div class="fbd-feedback '+(s.diagramOk?"good":"wrong")+'" role="status">'+esc(s.feedback)+'</div>':"";
  const reasoning=s.diagramOk?'<div class="fbd-reason"><h3>Use your diagram</h3><label>Are the forces balanced?'+select({balanced:"Balanced — no acceleration",unbalanced:"Unbalanced — acceleration"},s.balance,'data-fbd-reason="balance"')+'</label><label>Net force direction'+select({none:"No net force",N:"Up",S:"Down",W:"Left",E:"Right",SE:"Down-right (downhill)"},s.net,'data-fbd-reason="net"')+'</label><button type="button" class="primary-button" data-fbd-motion="'+p.id+'">Check net force →</button></div>':"";
  const end=s.complete?'<div class="fbd-done"><strong>All correct ✓</strong><p>'+esc(p.why)+'</p><button type="button" class="secondary-button" data-fbd-restart="'+p.id+'">Try again</button></div>':"";
- box.innerHTML='<div class="fbd-prompt"><span class="topic-pill">UNIT 3 · '+p.id+'</span><h2>'+esc(p.title)+'</h2><p>'+esc(p.question)+'</p><small>Draw only forces acting on the rock. Symbols: w = Fg, n = Fn, f = Ff, T = tension.</small></div>'+
+ box.innerHTML='<div class="fbd-prompt"><span class="topic-pill">UNIT 3 · '+p.id+'</span><h2>'+esc(p.title)+'</h2><p>'+esc(p.question)+'</p><small>Draw only forces acting on the rock. Symbols: w = Fg, n = Fn, f = Ff, T = tension. Arrow lengths are schematic, not to scale; labels and directions are checked.</small></div>'+
  '<div class="fbd-visuals"><div><strong>Situation</strong>'+scene(p)+'</div><div><strong>Your free-body diagram</strong>'+drawing(p,s)+'</div></div><section class="fbd-controls"><h3>Draw the force arrows</h3><p>Add a force and choose its direction. The diagram updates as you work.</p>'+rows+'<div class="fbd-buttons"><button type="button" class="secondary-button" data-fbd-add="'+p.id+'">+ Add arrow</button><button type="button" class="primary-button" data-fbd-check="'+p.id+'">Check diagram →</button></div>'+feedback+'</section>'+reasoning+end+
  '<div class="fbd-lessons"><button type="button" class="mini-link" data-open-lesson="fbd" data-from-view="fbd">Review force diagrams ↗</button><button type="button" class="mini-link" data-open-lesson="net" data-from-view="fbd">Review net force ↗</button></div>';
 }
