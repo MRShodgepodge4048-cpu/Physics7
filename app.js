@@ -188,7 +188,7 @@ function renderMissed(){
    x.type==="fbd"?window.PHYSICS7_FBD?.find(q=>q.id===x.id):null;
   return record?{...x,record}:null;
  }).filter(Boolean);
- target.innerHTML=items.length?items.map(x=>'<article class="missed-card"><div><span class="topic-pill">UNIT '+x.record.unit?.toString().replace("undefined","3")+' · '+safe(labels[x.type])+'</span><p>'+safe(x.record.q||x.record.question)+'</p></div><button type="button" class="small-action" data-retry-type="'+safe(x.type)+'" data-retry-id="'+safe(x.id)+'">Recheck →</button></article>').join(""):
+ target.innerHTML=items.length?items.map(x=>'<article class="missed-card"><div><span class="topic-pill">UNIT '+(x.type==="fbd"?3:x.record.unit)+' · '+safe(labels[x.type])+'</span><p>'+safe(x.record.q||x.record.question)+'</p></div><button type="button" class="small-action" data-retry-type="'+safe(x.type)+'" data-retry-id="'+safe(x.id)+'">Recheck →</button></article>').join(""):
  '<div class="empty-state"><h3>All caught up!</h3><p>Questions you miss will appear here until you complete a successful recheck.</p><button type="button" class="primary-button" data-action="start">Open quick checks →</button></div>';
 }
 function renderResources(){
@@ -243,7 +243,12 @@ document.addEventListener("click",e=>{
    index=getQuestions().findIndex(q=>q.id===id);
    go("practice");
   }else if(type==="workbook"){
-   retryWorkbookId=id;workFilter={unit:"all",topic:"all"};
+   retryWorkbookId=id;
+   // Clear response fields for a genuine second attempt while retaining written notes.
+   const savedInputs=checkedInputs[id]||{};
+   if(Object.keys(savedInputs).length){const previous=read("physics7_work_previous_v1");previous[id]=savedInputs;save("physics7_work_previous_v1",previous);}
+   checkedInputs[id]={};save("physics7_checkedinputs_v1",checkedInputs);
+   workFilter={unit:"all",topic:"all"};
    $("#workUnit").value="all";topicSelect("#workTopic",bank.workbook,"all");
    go("workbook");
    const field=document.querySelector('[data-answer="'+id+'"]')||document.querySelector('[data-note="'+id+'"]');
