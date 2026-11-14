@@ -38,7 +38,7 @@ const given=(key,label,expected)=>number(key,label,expected,
 const answer=p=>number("result","Numerical answer",p.result,
  "The setup is correct, but this calculation needs another look. Check your operation, decimals, and signs.",
  "Use the equation and your checked values. Enter the number here; the units are checked next.",
- {stageKind:"result",tolerance:p.tolerance||0});
+ {stageKind:"result",tolerance:p.tolerance||0,acceptedValues:p.acceptedValues||[]});
 function build(p){
  const stages=[];
  if(p.type==="metric"){
@@ -141,6 +141,7 @@ function checkField(field,raw){
  const value=Number(sanitized),expected=Number(field.expected);
  if(!Number.isFinite(value))return {ok:false,kind:"format",message:"That does not look like a finite number."};
  if(near(value,expected,field))return{ok:true,message:"Correct—this step checks out."};
+ if(Array.isArray(field.acceptedValues)&&field.acceptedValues.some(v=>Math.abs(value-v)<0.001))return{ok:true,message:"Correct—this rounded result is accepted."};
  if(expected!==0&&near(value,-expected,field))return{ok:false,kind:"sign",message:"Sign or direction issue: the magnitude is right but the sign is reversed. "+field.error};
  if(expected!==0&&([10,100,1000,.1,.01,.001].some(f=>near(value,expected*f,field))))return{ok:false,kind:"conversion",message:"Power-of-ten or decimal-place issue: check your conversion factor or the decimal placement. "+field.error};
  if(field.stageKind==="given")return{ok:false,kind:"given",message:"Given-value issue: this is not the number provided for that quantity. "+field.error};
