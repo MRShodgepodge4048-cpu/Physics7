@@ -9,12 +9,41 @@ const save=(key,val)=>{try{localStorage.setItem(key,JSON.stringify(val));}catch(
 const history=read("physics7_answers_v1"),notes=read("physics7_notes_v1");
 let filter={unit:"all",topic:"all",search:""},workFilter={unit:"all",topic:"all"},index=0,selectedMulti={},feedback={},currentView="home";
 const topicNames=[...new Set(bank.quizzes.map(q=>q.topic))];
+const retryKey="physics7_retry_queue_v1";
+const retryQueue=read(retryKey);
+let retryQuizId=null,retryWorkbookId=null;
+const retryFeedback={},retryLast={};
+function retryItems(){return Object.values(retryQueue).filter(x=>x&&x.type&&x.id);}
+function retryHas(type,id){return !!retryQueue[type+":"+id];}
+function retrySave(){save(retryKey,retryQueue);updateStats();if(currentView==="mistakes")renderMissed();}
+function retryMark(type,id){
+ const key=type+":"+id;
+ if(!retryQueue[key])retryQueue[key]={type,id,firstMissed:new Date().toISOString()};
+ retrySave();
+}
+function retryResolve(type,id){if(!retryHas(type,id))return;delete retryQueue[type+":"+id];retrySave();}
+window.PHYSICS7_RETRY={mark:retryMark,resolve:retryResolve,has:retryHas,items:retryItems};
+try{
+ if(localStorage.getItem("physics7_retry_migrated_v1")!=="yes"){
+  for(const q of bank.quizzes){
+   const h=history[q.id];
+   if(h?.attempted&&h.firstCorrect===false)retryQueue["quiz:"+q.id]??={type:"quiz",id:q.id};
+  }
+  const olderMath=read("physics7_math_work_v1");
+  for(const [id,w] of Object.entries(olderMath)){
+   if(Object.values(w?.attempts||{}).some(n=>Number(n)>1))retryQueue["math:"+id]??={type:"math",id};
+  }
+  localStorage.setItem(retryKey,JSON.stringify(retryQueue));
+  localStorage.setItem("physics7_retry_migrated_v1","yes");
+ }
+}catch(e){}
+
 function announce(message){const target=$("#liveStatus");if(target) target.textContent=message;}
 function getQuestions(){return bank.quizzes.filter(q=>(filter.unit==="all"||String(q.unit)===filter.unit)&&(filter.topic==="all"||q.topic===filter.topic)&&(!filter.search||(q.q+" "+q.topic+" "+q.options.join(" ")).toLowerCase().includes(filter.search.toLowerCase())));}
 function getWork(){return bank.workbook.filter(q=>(workFilter.unit==="all"||String(q.unit)===workFilter.unit)&&(workFilter.topic==="all"||q.topic===workFilter.topic));}
 function attempted(){return Object.values(history).filter(x=>x&&x.attempted).length;}
-function incorrect(){return bank.quizzes.filter(q=>history[q.id]?.attempted&&!history[q.id].passed);}
-function updateStats(){let attempts=bank.quizzes.filter(q=>history[q.id]?.attempted);let first=attempts.filter(q=>history[q.id].firstCorrect).length;$("#statAttempted").textContent=attempts.length;$("#statAttemptCaption").textContent=`${bank.quizzes.length} quick checks available`;$("#statAccuracy").textContent=attempts.length?Math.round(first/attempts.length*100)+"%":"—";$("#statMissed").textContent=incorrect().length;$("#navQuizCount").textContent=bank.quizzes.length;}
+function incorrect(){return bank.quizzes.filter(q=>retryHas("quiz",q.id));}
+function updateStats(){let attempts=bank.quizzes.filter(q=>history[q.id]?.attempted);let first=attempts.filter(q=>history[q.id].firstCorrect).length;$("#statAttempted").textContent=attempts.length;$("#statAttemptCaption").textContent=`${bank.quizzes.length} quick checks available`;$("#statAccuracy").textContent=attempts.length?Math.round(first/attempts.length*100)+"%":"—";$("#statMissed").textContent=retryItems().length;$("#navQuizCount").textContent=bank.quizzes.length;}
 function setView(view){currentView=view;$$(".view").forEach(v=>v.hidden=v.id!==view+"View");$$(".nav-link").forEach(b=>{let on=b.dataset.view===view;b.classList.toggle("active",on);if(on)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current");});$("#currentLocation").textContent={home:"OVERVIEW",practice:"QUICK CHECKS",workbook:"SKILL PRACTICE",mistakes:"RETRY MISSED",resources:"STUDY RESOURCES",math:"MATH WORKSHOP",lessons:"MINI-LESSONS",fbd:"FREE-BODY DIAGRAMS"}[view];$("#main").focus({preventScroll:true});window.scrollTo({top:0,behavior:"instant"});$(".sidebar").classList.remove("open");$("#menuButton").setAttribute("aria-expanded","false");if(view==="practice")renderQuiz();if(view==="workbook")renderWork();if(view==="mistakes")renderMissed();if(view==="resources")renderResources();if(view==="math")window.PHYSICS_WORKSHOP?.renderMath();if(view==="lessons")window.PHYSICS_WORKSHOP?.renderLessons();if(view==="fbd")window.PHYSICS_FBD?.render();updateStats();}
 function go(view){const hash="#/"+view;if(location.hash===hash){setView(view);}else{location.hash=hash;}}
 function syncRoute(){const name=location.hash.replace(/^#\/?/,"");setView(["home","practice","workbook","mistakes","resources","math","lessons","fbd"].includes(name)?name:"home");}
@@ -45,7 +74,7 @@ function renderQuiz(){
  $("#quizPosition").textContent=total?`Question ${Math.min(index+1,total)} of ${total}`:"No matching questions";
  $("#prevQuestion").disabled=index<=0||!total;$("#nextQuestion").disabled=index>=total-1||!total;
  if(!total){area.innerHTML='<div class="empty-state"><h3>No questions found</h3><p>Try another unit or topic.</p></div>';dots.innerHTML="";$("#sourceAside").textContent="Choose another topic or clear the search to see more questions.";return;}
- index=Math.max(0,Math.min(index,total-1));const q=questions[index],result=history[q.id]||{},multi=Array.isArray(q.answer),choices=selectedMulti[q.id]||[];
+ index=Math.max(0,Math.min(index,total-1));const q=questions[index],rechecking=retryQuizId===q.id&&retryHas("quiz",q.id),result=rechecking?{attempted:!!retryFeedback[q.id],passed:false,last:retryLast[q.id]}:(history[q.id]||{}),multi=Array.isArray(q.answer),choices=selectedMulti[q.id]||[];
  $("#quizPosition").textContent=`Question ${index+1} of ${total}`;
  dots.innerHTML=questions.map((other,i)=>'<button type="button" aria-label="Go to question '+(i+1)+'" data-dot="'+i+'" class="'+(i===index?"active ":"")+(history[other.id]?.passed?"done":"")+'"></button>').join("");
  const multiReminder=multi?'<p class="quiz-multi-reminder">Select all correct choices. More than one answer may be right. Then press Check selected answers.</p>':"";
@@ -55,7 +84,7 @@ function renderQuiz(){
   const incorrectChoice=!result.passed&&result.attempted&&result.last===i&&!multi;
   return '<button type="button" class="option '+(chosen?"selected ":"")+(correct?"correct ":"")+(incorrectChoice?"incorrect":"")+'" data-option="'+i+'" aria-pressed="'+Boolean(chosen)+'" '+(result.passed?"disabled":"")+'><span class="letter">'+String.fromCharCode(65+i)+'</span><span>'+safe(item)+'</span></button>';
  }).join("");
- const msg=feedback[q.id]||(result.passed?"Correct! Nice work.":result.attempted?"Not quite. Try a different answer.":"");
+ const msg=rechecking?(retryFeedback[q.id]||"Recheck this question to clear it from Retry Missed."):(feedback[q.id]||(result.passed?"Correct! Nice work.":result.attempted?"Not quite. Try a different answer.":""));
  const fb=msg?'<div class="feedback '+(result.passed?"correct":"incorrect")+'" role="status"><strong>'+(result.passed?"Nice work!":"Keep going.")+'</strong>'+safe(msg)+(result.passed&&result.attempted&&!result.firstCorrect?'<div>Corrected after your first attempt.</div>':"")+'</div>':"";
  area.innerHTML='<div class="question-topline"><span class="topic-pill">UNIT '+q.unit+' · '+safe(q.topic)+'</span><span class="source-code">PRACTICE QUESTION</span></div><h2>'+safe(q.q)+'</h2>'+multiReminder+'<div class="option-list">'+options+'</div>'+(multi&&!result.passed?'<button type="button" class="primary-button" style="margin-top:16px" id="checkMultiple" '+(choices.length?"":"disabled")+' >Check selected answers →</button>':"")+fb+stepsPanel("quizzes",q.id)+'<button type="button" class="mini-link" data-open-lesson="'+window.PHYSICS_WORKSHOP.relatedLesson(q.unit,q.topic)+'" data-from-view="practice">Review this concept ↗</button>';
  $("#sourceAside").textContent="Work through the problem first, then check your answer. Try again if needed.";
@@ -64,6 +93,24 @@ function grade(q,selection){
  const expected=Array.isArray(q.answer)?q.answer:[q.answer];
  const answer=Array.isArray(selection)?selection:[selection];
  const right=expected.length===answer.length&&expected.every(x=>answer.includes(x));
+ if(retryQuizId===q.id&&retryHas("quiz",q.id)){
+  if(right){
+   const item=history[q.id]||{attempted:false,firstCorrect:false,passed:false};
+   if(!item.attempted){item.attempted=true;item.firstCorrect=false;}
+   item.passed=true;item.tries=(item.tries||0)+1;history[q.id]=item;
+   save("physics7_answers_v1",history);
+   retryResolve("quiz",q.id);retryQuizId=null;delete retryFeedback[q.id];
+   delete retryLast[q.id];selectedMulti[q.id]=[];
+   announce("Successful recheck. This item is cleared.");
+   go("mistakes");
+  }else{
+   retryFeedback[q.id]="Not quite. Keep reviewing and try the recheck again.";
+   retryLast[q.id]=Array.isArray(selection)?null:selection;
+   renderQuiz();announce("Not quite. The item remains in Retry Missed.");
+  }
+  return;
+ }
+ if(!right)retryMark("quiz",q.id);
  let item=history[q.id]||{attempted:false,firstCorrect:false,passed:false};
  if(!item.attempted){item.attempted=true;item.firstCorrect=right;}
  item.passed=item.passed||right;item.last=Array.isArray(selection)?null:selection;item.tries=(item.tries||0)+1;
@@ -105,13 +152,15 @@ function renderWork(){
 function gradeWorkbook(id){
  const fields=selfChecks[id]?.fields||[];
  if(!fields.length)return;
- let somethingEntered=false;
+ let somethingEntered=false,invalid=false,allCorrect=true;
  fields.forEach((field,j)=>{
   const node=document.querySelector('[data-answer="'+id+'"][data-field="'+j+'"]');
   if(!node)return;
   const raw=String(node.value??"").trim();
   if(raw){somethingEntered=true;(checkedInputs[id]??={})[j]=node.value;}
   const verdict=compareValue(field,node.value);
+  if(verdict===false&&raw)invalid=true;
+  if(verdict!==true)allCorrect=false;
   const result=$("#result-"+id+"-"+j);
   if(result){result.textContent=verdict===null?"Enter an answer.":verdict?"Correct ✓":"Check the number, direction, or unit.";
    result.className="check-result "+(verdict===null?"":verdict?"good":"tryagain");}
@@ -120,20 +169,36 @@ function gradeWorkbook(id){
   workbookAttempts[id]=true;save("physics7_work_attempts_v1",workbookAttempts);
   save("physics7_checkedinputs_v1",checkedInputs);
  }
- announce("Answer checks updated.");
+ if(invalid)retryMark("workbook",id);
+ if(retryWorkbookId===id&&allCorrect){
+  retryWorkbookId=null;retryResolve("workbook",id);
+  announce("Workbook recheck completed.");
+  go("mistakes");
+  return;
+ }
+ announce(invalid?"Some answers need work. Saved to Retry Missed.":"Answer checks updated.");
 }
 function renderMissed(){
- const list=incorrect(),target=$("#missedList");
- target.innerHTML=list.length?list.map(q=>'<article class="missed-card"><div><span class="topic-pill">UNIT '+q.unit+' · '+safe(q.topic)+'</span><p>'+safe(q.q)+'</p></div><button type="button" class="small-action" data-retry="'+safe(q.id)+'">Retry →</button></article>').join(""):'<div class="empty-state"><h3>Nothing to retry right now ✦</h3><p>Missed questions appear here until you answer them correctly.</p><button type="button" class="primary-button" data-action="start">Open quick checks →</button></div>';
+ const target=$("#missedList");
+ const labels={quiz:"Quick check",workbook:"Workbook",math:"Math workshop",fbd:"Force diagram"};
+ const items=retryItems().map(x=>{
+  const record=x.type==="quiz"?bank.quizzes.find(q=>q.id===x.id):
+   x.type==="workbook"?bank.workbook.find(q=>q.id===x.id):
+   x.type==="math"?window.PHYSICS7_MATH?.find(q=>q.id===x.id):
+   x.type==="fbd"?window.PHYSICS7_FBD?.find(q=>q.id===x.id):null;
+  return record?{...x,record}:null;
+ }).filter(Boolean);
+ target.innerHTML=items.length?items.map(x=>'<article class="missed-card"><div><span class="topic-pill">UNIT '+x.record.unit?.toString().replace("undefined","3")+' · '+safe(labels[x.type])+'</span><p>'+safe(x.record.q||x.record.question)+'</p></div><button type="button" class="small-action" data-retry-type="'+safe(x.type)+'" data-retry-id="'+safe(x.id)+'">Recheck →</button></article>').join(""):
+ '<div class="empty-state"><h3>All caught up!</h3><p>Questions you miss will appear here until you complete a successful recheck.</p><button type="button" class="primary-button" data-action="start">Open quick checks →</button></div>';
 }
 function renderResources(){
  $("#equationList").innerHTML=bank.equations.map(([title,equation])=>'<div class="equation-row"><span>'+safe(title)+'</span><code>'+safe(equation)+'</code></div>').join("");
 }
 function printSummary(){
- const total=bank.quizzes.filter(q=>history[q.id]?.attempted),first=total.filter(q=>history[q.id].firstCorrect).length,miss=incorrect(),written=Object.values(notes).filter(v=>String(v).trim()).length;
+ const total=bank.quizzes.filter(q=>history[q.id]?.attempted),first=total.filter(q=>history[q.id].firstCorrect).length,miss=incorrect(),rechecks=retryItems(),written=Object.values(notes).filter(v=>String(v).trim()).length;
  const byUnit=[1,2,3].map(u=>{const a=bank.quizzes.filter(q=>q.unit===u&&history[q.id]?.attempted),cor=a.filter(q=>history[q.id].firstCorrect);return '<tr><td>Unit '+u+'</td><td>'+a.length+'</td><td>'+(a.length?Math.round(cor.length*100/a.length)+'%':'—')+'</td></tr>';}).join("");
  $$("#printSummary").forEach(n=>n.remove());const sheet=document.createElement("section");sheet.id="printSummary";sheet.className="print-sheet";
- sheet.innerHTML='<h1>Physics 7 · Pre-Comp Study Summary</h1><p>Generated: '+safe(new Date().toLocaleDateString())+' · Units 1–3</p><p><strong>'+total.length+'</strong> questions attempted · <strong>'+(total.length?Math.round(first/total.length*100)+"%":"—")+'</strong> first-try accuracy · <strong>'+miss.length+'</strong> needing retry · <strong>'+written+'</strong> workbook exercises with notes</p><h2>Unit progress</h2><table><tr><th>Unit</th><th>Attempted</th><th>First-try accuracy</th></tr>'+byUnit+'</table><h2>To revisit</h2>'+(miss.length?'<ul>'+miss.map(q=>'<li>Unit '+q.unit+' — '+safe(q.topic)+' (school review slide '+q.slide+')</li>').join("")+'</ul>':'<p>No missed quick checks remaining.</p>')+'<p>This is a practice summary, not a graded exam result. Workbook notes are self-checked. Progress is saved only on the current device.</p>';
+ sheet.innerHTML='<h1>Physics 7 · Pre-Comp Study Summary</h1><p>Generated: '+safe(new Date().toLocaleDateString())+' · Units 1–3</p><p><strong>'+total.length+'</strong> questions attempted · <strong>'+(total.length?Math.round(first/total.length*100)+"%":"—")+'</strong> first-try accuracy · <strong>'+miss.length+'</strong> missed quick checks · <strong>'+rechecks.length+'</strong> total needing recheck · <strong>'+written+'</strong> workbook exercises with notes</p><h2>Unit progress</h2><table><tr><th>Unit</th><th>Attempted</th><th>First-try accuracy</th></tr>'+byUnit+'</table><h2>To revisit</h2>'+(miss.length?'<ul>'+miss.map(q=>'<li>Unit '+q.unit+' — '+safe(q.topic)+' (school review slide '+q.slide+')</li>').join("")+'</ul>':'<p>No missed quick checks remaining.</p>')+'<p>This is a practice summary, not a graded exam result. Workbook notes are self-checked. Progress is saved only on the current device.</p>';
  document.body.appendChild(sheet);window.print();
 }
 document.addEventListener("click",e=>{
@@ -148,7 +213,7 @@ document.addEventListener("click",e=>{
  if(b.dataset.dot!==undefined){index=Number(b.dataset.dot);renderQuiz();return;}
  if(b.id==="prevQuestion"){index=Math.max(0,index-1);renderQuiz();return;}
  if(b.id==="nextQuestion"){index=Math.min(index+1,getQuestions().length-1);renderQuiz();return;}
- if(b.dataset.option!==undefined){const q=getQuestions()[index];if(!q||history[q.id]?.passed)return;const pos=Number(b.dataset.option);if(Array.isArray(q.answer)){const ary=selectedMulti[q.id]||[];selectedMulti[q.id]=ary.includes(pos)?ary.filter(i=>i!==pos):[...ary,pos].sort();renderQuiz();}else grade(q,pos);return;}
+ if(b.dataset.option!==undefined){const q=getQuestions()[index];if(!q||(history[q.id]?.passed&&!(retryQuizId===q.id&&retryHas("quiz",q.id))))return;const pos=Number(b.dataset.option);if(Array.isArray(q.answer)){const ary=selectedMulti[q.id]||[];selectedMulti[q.id]=ary.includes(pos)?ary.filter(i=>i!==pos):[...ary,pos].sort();renderQuiz();}else grade(q,pos);return;}
  if(b.id==="checkMultiple"){const q=getQuestions()[index];if(q&&Array.isArray(q.answer))grade(q,selectedMulti[q.id]||[]);return;}
 
  if(b.dataset.revealStep){
@@ -167,6 +232,26 @@ document.addEventListener("click",e=>{
  }
  if(b.dataset.check){gradeWorkbook(b.dataset.check);return;}
  if(b.dataset.guide){const id=b.dataset.guide;if(!hasStudentAttempt("workbook",id)){b.textContent="Enter some work first to unlock solutions";announce("Enter your work or a proposed answer before opening the solution guide.");return;}revealStates[id]=!revealStates[id];save("physics7_revealed_v1",revealStates);const el=$("#guide-"+id);if(el)el.hidden=!revealStates[id];b.setAttribute("aria-expanded",String(revealStates[id]));b.textContent=revealStates[id]?"Hide solution guide":"Show solution guide";return;}
+ if(b.dataset.retryType&&b.dataset.retryId){
+  const type=b.dataset.retryType,id=b.dataset.retryId;
+  if(!retryHas(type,id))return;
+  if(type==="quiz"){
+   retryQuizId=id;retryFeedback[id]="";selectedMulti[id]=[];
+   filter={unit:"all",topic:"all",search:""};
+   $("#quizUnit").value="all";$("#quizSearch").value="";
+   topicSelect("#quizTopic",bank.quizzes,"all");
+   index=getQuestions().findIndex(q=>q.id===id);
+   go("practice");
+  }else if(type==="workbook"){
+   retryWorkbookId=id;workFilter={unit:"all",topic:"all"};
+   $("#workUnit").value="all";topicSelect("#workTopic",bank.workbook,"all");
+   go("workbook");
+   const field=document.querySelector('[data-answer="'+id+'"]')||document.querySelector('[data-note="'+id+'"]');
+   field?.closest(".workbook-card")?.scrollIntoView?.({behavior:"smooth",block:"center"});
+  }else if(type==="math"){window.PHYSICS_WORKSHOP?.startRetry?.(id);}
+  else if(type==="fbd"){window.PHYSICS_FBD?.startRetry?.(id);}
+  return;
+ }
  if(b.dataset.retry){filter={unit:"all",topic:"all",search:""};$("#quizUnit").value="all";$("#quizSearch").value="";topicSelect("#quizTopic",bank.quizzes,"all");index=getQuestions().findIndex(q=>q.id===b.dataset.retry);go("practice");return;}
 });
 $("#quizUnit").addEventListener("change",e=>{filter.unit=e.target.value;filter.topic=topicSelect("#quizTopic",bank.quizzes,filter.unit);index=0;renderQuiz();});
