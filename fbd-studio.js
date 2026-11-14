@@ -9,6 +9,8 @@ const dirNames={N:"Up",NE:"Up-right (45°)",NE26:"Up-right (about 26.6°)",NWste
 const forceNames={Fg:"Weight / gravity (Fg)",Fn:"Normal force (Fn)",Ff:"Friction (Ff)",Fair:"Air resistance (Fair)",T:"Tension (T)",T1:"Tension: rope 1 (T1)",T2:"Tension: rope 2 (T2)",Fn1:"Normal: surface 1 (Fn1)",Fn2:"Normal: surface 2 (Fn2)"};
 const key="physics7_fbd_v1";
 let memory={};try{memory=JSON.parse(localStorage.getItem(key))||{};}catch(e){}
+// Changed angle and normal-force cases require reattempt; preserve all other progress.
+if(memory.__auditVersion!==2){for(const id of ["LM-5","LM-17","LM-18"])delete memory[id];memory.__auditVersion=2;try{localStorage.setItem(key,JSON.stringify(memory));}catch(e){}}
 let selected=cases[0]?.id||"",filter="all";
 function state(id){return memory[id]||(memory[id]={arrows:[{force:"",dir:""}],diagramOk:false,balance:"",net:"",complete:false,feedback:""});}
 function save(){try{localStorage.setItem(key,JSON.stringify(memory));}catch(e){}}
