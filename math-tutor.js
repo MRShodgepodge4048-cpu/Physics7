@@ -199,9 +199,26 @@ function gradeCurrent(id){
    if(!v.ok)all=false;
  }
  w.attempts[w.stage]=(w.attempts[w.stage]||0)+1;
- if(all){w.stage++;w.feedback={};w.hint=false;w.complete=w.stage>=parts.length;setStatus("Step correct. You can continue to the next step.");}
- else{setStatus("A step needs correcting. Read the feedback next to your answer.");}
+ const hasInput=part.fields.some(f=>String(w.values[f.key]??"").trim());
+ if(!all&&hasInput)window.PHYSICS7_RETRY?.mark("math",id);
+ if(all){
+  w.stage++;w.feedback={};w.hint=false;w.complete=w.stage>=parts.length;
+  if(w.complete&&w.retryActive){
+   w.retryActive=false;persist();
+   window.PHYSICS7_RETRY?.resolve("math",id);
+   setStatus("Math recheck completed.");
+   location.hash="#/mistakes";return;
+  }
+  setStatus("Step correct. You can continue to the next step.");
+ }else{setStatus("A step needs correcting. This problem is saved in Retry Missed.");}
  persist();renderMath();
+}
+function startRetry(id){
+ if(!window.PHYSICS7_RETRY?.has("math",id))return;
+ const w=itemState(id);
+ w.previousAttempt={values:{...(w.values||{})},stage:w.stage,complete:!!w.complete,attempts:{...(w.attempts||{})}};
+ w.stage=0;w.values={};w.attempts={};w.complete=false;w.feedback={};w.hint=false;w.retryActive=true;
+ persist();setCurrentMath(id);
 }
 function setCurrentMath(id){
  if(!problems.some(x=>x.id===id))return;
@@ -259,5 +276,5 @@ function wire(){
  topics();
 }
 wire();
-window.PHYSICS_WORKSHOP={renderMath,renderLessons,openLesson,relatedLesson,setCurrentMath,checkField,build,problems,lessons};
+window.PHYSICS_WORKSHOP={renderMath,renderLessons,openLesson,relatedLesson,setCurrentMath,startRetry,checkField,build,problems,lessons};
 })();
