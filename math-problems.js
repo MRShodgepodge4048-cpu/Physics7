@@ -1,4 +1,4 @@
-/* Original classroom calculation questions from Physics 7 packets, workbooks, and lecture slides. */
+/* School-authored calculation problems for Units 1-3; audited physical assumptions. */
 window.PHYSICS7_MATH = [
   {
     "id": "p01",
@@ -210,7 +210,7 @@ window.PHYSICS7_MATH = [
     "id": "p16",
     "unit": 2,
     "topic": "Speed and velocity",
-    "q": "A person is walking at a constant velocity of 1 meter per second. How long will it take them to travel 100 meters?",
+    "q": "A person walks at a constant speed of 1 m/s along a straight path. How long will it take to travel a distance of 100 m?",
     "source": "Physics 7 Summer Packet p. 21 Q10, key p. 91",
     "type": "rate",
     "mode": "time",
@@ -253,7 +253,7 @@ window.PHYSICS7_MATH = [
     "id": "p19",
     "unit": 2,
     "topic": "Acceleration",
-    "q": "A bike slows down from 12 m/s to 4 m/s in 4 seconds. What is the acceleration? Is it positive or negative?",
+    "q": "A bike slows from 12 m/s to 4 m/s in 4 seconds. Take its initial direction of motion as positive. What is its acceleration, including sign?",
     "source": "Physics 7 Summer Packet p. 24, Acceleration Practice Q2",
     "type": "acceleration",
     "vi": 12,
@@ -266,7 +266,7 @@ window.PHYSICS7_MATH = [
     "id": "p20",
     "unit": 2,
     "topic": "Acceleration",
-    "q": "A ball is dropped and speeds up from 0 m/s to 20 m/s in 2 seconds. What is the average acceleration?",
+    "q": "A dropped ball increases its downward speed from 0 m/s to 20 m/s in 2 seconds. Take downward as positive. What is the average acceleration?",
     "source": "Physics 7 Summer Packet p. 24, Acceleration Practice Q4",
     "type": "acceleration",
     "vi": 0,
@@ -279,7 +279,7 @@ window.PHYSICS7_MATH = [
     "id": "p21",
     "unit": 2,
     "topic": "Acceleration",
-    "q": "A bike goes from 10 m/s to 2 m/s in 6 s. What is its acceleration?",
+    "q": "A bike slows from 10 m/s to 2 m/s in 6 s. Take the bike’s initial direction of motion as positive. What is its average acceleration?",
     "source": "Physics 7 Pre-Comp Review 2023 · White Boards",
     "type": "acceleration",
     "vi": 10,
@@ -381,7 +381,7 @@ window.PHYSICS7_MATH = [
     "id": "p29",
     "unit": 3,
     "topic": "Friction",
-    "q": "A 5 kg object is on a flat surface. The coefficient of friction (μ) is 0.4. What is the frictional force? (Use gravity = 9.8 m/s²)",
+    "q": "A 5 kg object is sliding on a level horizontal surface. The coefficient of KINETIC friction (μk) is 0.4. Assuming Fn = mg and g = 9.8 m/s², what is the magnitude of the kinetic frictional force?",
     "source": "Physics 7 Summer Packet p. 39 Q5, key p. 96",
     "type": "friction",
     "mass": 5,
@@ -395,13 +395,13 @@ window.PHYSICS7_MATH = [
     "id": "p30",
     "unit": 3,
     "topic": "Newton's second law",
-    "q": "What is the net force on a 3.6 kg block of wood that accelerates at 7.1 m/s²?",
+    "q": "What is the net force on a 3.6 kg block of wood that accelerates at 7.1 m/s²? Give the result to the nearest hundredth or tenth of a newton.",
     "source": "Physics 7 Pre-Comp Review 2023 · White Boards",
     "type": "force",
     "mass": 3.6,
     "acc": 7.1,
     "result": 25.56,
-    "tolerance": 0.06,
+    "tolerance": 0.045,
     "answerUnit": "N"
   },
   {
