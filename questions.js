@@ -1,82 +1,736 @@
-/* Every prompt below comes from user-supplied school materials.
-   No generated physics questions. 'answer' indices transcribe the provided slide keys. */
+/* Question bank from Physics 7 school review materials; answer indices use zero-based positions. */
 window.PHYSICS7 = {
- quizzes: [
- {id:"s05",unit:1,topic:"Metric prefixes",slide:5,q:"The prefix for “hundredth” is:",options:["centi","deci","hecto","deca"],answer:0},
- {id:"s06",unit:1,topic:"Metric conversions",slide:6,q:"Convert 0.000349 Megabytes to bytes",options:["0.0000000000349 bytes","0.349 bytes","349 bytes","349,000 bytes"],answer:2},
- {id:"s11",unit:2,topic:"Speed and velocity",slide:11,q:"If a rabbit runs 840 m in 7 minutes, what is her speed?",options:["120 m/s","0.5 m/s","2 m/s","60 m/s"],answer:2},
- {id:"s12",unit:2,topic:"Speed and velocity",slide:12,q:"A bus is travelling at 12 m/s East. If a passenger stands up and walks down the aisle at 1.5 m/s West, what is the passenger’s resultant velocity?",options:["10.5 m/s W","10.5 m/s E","13.5 m/s W","13.5 m/s E"],answer:1},
- {id:"s13",unit:2,topic:"Speed and velocity",slide:13,q:"To determine the total distance something traveled, you need to know:",options:["its average speed and total time","its total speed and average time","its instantaneous speed and acceleration","its speed and direction"],answer:0},
- {id:"s14",unit:2,topic:"Acceleration",slide:14,q:"Herman is running South while slowing down. The direction of his velocity and acceleration are:",options:["South, south","South, north","North, south","North, north"],answer:1},
- {id:"s15",unit:2,topic:"Acceleration",slide:15,q:"The definition of “accelerate” is to:",options:["speed up","slow down","change your velocity","change direction"],answer:2},
- {id:"s17",unit:2,topic:"Distance and displacement",slide:17,q:"How does your distance and displacement compare when you walk to the store then back home?",options:["Distance is equal to displacement","Distance is less than displacement","Distance is greater than displacement","There is no relationship between distance and displacement"],answer:2},
- {id:"s30",unit:3,topic:"Mass and weight",slide:30,q:"Mass is:",options:["the quantity of matter in an object","a measure of an object’s weight","a measure of an object’s inertia","both a and c are true"],answer:3},
- {id:"s31",unit:3,topic:"Mass and weight",slide:31,q:"The weight of an object:",options:["is the force acting on the object due to gravity","is the same as the object’s mass","can never change","determines the object’s inertia"],answer:0},
- {id:"s32",unit:3,topic:"Gravity",slide:32,q:"Under the force of gravity alone, objects on earth will accelerate at ___________ in a direction that ___________.",options:["9.8 m/s²; is always downward","9.8 m/s²; depends on the direction the object was moving","8.9 m/s²; depends on the direction the object was moving","8.9 m/s²; is always downward"],answer:0},
- {id:"s33",unit:3,topic:"Newton's laws",slide:33,q:"Newton’s 1st Law of Motion tells us that an object won’t ______________ unless an unbalanced force acts on it.",options:["move","accelerate","change its velocity","both b and c are correct"],answer:3},
- {id:"s34",unit:3,topic:"Newton's laws",slide:34,q:"Newton’s 3rd Law of Motion states that for an action/reaction pair of forces:",options:["both objects experience identical forces","the object of lesser mass experiences a greater force","the object of greater mass experiences a greater force","both objects experience equal amounts of force but in opposite directions"],answer:3},
- {id:"s35",unit:3,topic:"Newton's laws",slide:35,q:"Action-Reaction forces don’t cancel because…",options:["The objects experience different amounts of force","Incorrect statement, they do cancel","The forces occur at different times","The forces act on different objects"],answer:3},
- {id:"s36",unit:3,topic:"Types of forces",slide:36,q:"A normal force…",options:["exists when an object is hanging from a rope","is produced by gravity","is produced by a surface","both b and c are true"],answer:2},
- {id:"s37",unit:3,topic:"Equilibrium",slide:37,q:"Can an object in motion be in equilibrium?",options:["Yes, if it is accelerating at a constant rate","No, equilibrium means not moving!","Yes, if it is moving at constant velocity","Yes, but only if the forces acting on it are unbalanced"],answer:2},
- {id:"s38",unit:3,topic:"Equilibrium",slide:38,q:"A 8 kg block is pushed to the right with 60N of force. If it travels at a constant 2 m/s, what is the net force acting on it?",options:["0 N","50 N","60 N","120 N"],answer:0},
- {id:"s39",unit:3,topic:"Friction",slide:39,q:"A 8 kg block is pushed to the right with 60N of force. If it travels at a constant 2 m/s, what is the frictional force acting on it?",options:["0 N","50 N","60 N","120 N"],answer:2},
- {id:"s41",unit:3,topic:"Newton's laws",slide:41,q:"The following statement concerning Newton’s 2nd Law of Motion is incorrect",options:["The acceleration of an object is directly proportional to its mass","The acceleration of an object is directly proportional to the net force acting on it","The acceleration of an object is inversely proportional to its mass","An object will accelerate in the direction of the net force acting on it"],answer:0},
- {id:"s42",unit:3,topic:"Newton's laws",slide:42,q:"A hockey puck is given a single push such that it travels across frictionless ice at 3 m/s. After a long time, what happens to the motion of the puck?",options:["It slows down","It stops","It continues at 3 m/s","It speeds up"],answer:2},
- {id:"s43",unit:3,topic:"Friction",slide:43,q:"Which statement describes the force that must be exerted to maintain a constant velocity while sliding a box?",options:["The force is equal to the friction force.","The force is not related to the friction force.","The force is slightly greater than the friction force.","The force is slightly less than the friction force."],answer:0},
- {id:"s44",unit:3,topic:"Friction",slide:44,q:"A 5 kg mass is pushed with 20N of force to the left. If it accelerates at 2 m/s² to the left, calculate the coefficient of friction between the mass and ground.",options:["0.20","0.61","1.64","5.00"],answer:0},
- {id:"s48",unit:3,topic:"Newton's laws",slide:48,q:"A 10 kg bowling ball collides with a 1 kg pin. Which object experiences a larger force during the collision?",options:["The pin","The bowling ball","They both experience the same force","You need the acceleration to determine"],answer:2},
- {id:"s49",unit:3,topic:"Newton's laws",slide:49,q:"A 10 kg bowling ball collides with a 1 kg pin. Which object experiences a larger acceleration due to the collision?",options:["The pin","The bowling ball","They have the same acceleration","You need the applied force to determine"],answer:0},
- {id:"s69",unit:3,topic:"Equilibrium",slide:69,q:"A 1 kg object on Earth is acted on by 4 forces: gravity, a friction force of 38 N to the left, a normal force of 9.8 N up and 1 unknown force. It moves to the right with constant velocity of 10 m/s. What is the net force on the object?",options:["48 N to the right","0 N","10 N to the right","You must know the unknown force to calculate net force"],answer:1},
- {id:"s70",unit:2,topic:"Acceleration",slide:70,q:"Which of the following objects is accelerating? Choose all that apply.",options:["Carl walks at 1.5 m/s south.","A car turns a corner at 5 m/s.","Jess speeds up on her bicycle when she leaves her friend’s house.","An airplane slows down as it approaches the runway"],answer:[1,2,3]},
- {id:"s71",unit:3,topic:"Equilibrium",slide:71,q:"Which of these is could be changing for an object that experiences no net external force?",options:["Position","Speed","Velocity","Acceleration"],answer:0},
- {id:"s72",unit:3,topic:"Newton's laws",slide:72,q:"An insect with mass mi hits the window of a truck with mass mt. Which of these gives the relationship between the force the truck exerts (Ft ) and the force the insect exerts (Fi ).",options:["Ft > Fi","Ft = Fi","Ft < Fi","There is no relationship between the forces"],answer:1},
- {id:"s73",unit:3,topic:"Mass and weight",slide:73,q:"Which of the following would have the most inertia?",options:["A 4 kg cat moving at 2 m/s.","A 5 kg cat moving at 3 m/s.","A 400 kg elephant moving at 1 m/s.","A 500 kg elephant that is at rest."],answer:3}
- ],
- workbook: [
- {id:"w1a",unit:1,topic:"Scientific thinking",source:"Unit 1 Workbook · Worksheet 1.1 · Question 1",q:"Define each term in your own words:\na. Variable\nb. Constant\nc. Unit\nd. Physical Quantity"},
- {id:"w1b",unit:1,topic:"Scientific thinking",source:"Unit 1 Workbook · Worksheet 1.1 · Question 3",q:"A student is testing how sunlight affects plant growth for three different plants. They give all plants the same amount of water, the same soil, and the same size pot. The plants get 12 hours, 6 hours, and 2 hours of sunlight respectively.\na. What is one variable in this experiment?\nb. What is one constant?"},
- {id:"w1c",unit:1,topic:"Scientific thinking",source:"Unit 1 Workbook · Worksheet 1.1 · Question 4",q:"Explain the difference between a formula and an equation in your own words."},
- {id:"w1d",unit:1,topic:"SI units",source:"Unit 1 Workbook · Worksheet 1.2 · Question 1",q:"Circle all the base units below:\nm      kg     m/s     s     K     m²"},
- {id:"w1e",unit:1,topic:"Metric conversions",source:"Unit 1 Workbook · Worksheet 1.3 · Question 1",q:"Put these prefixes in order from smallest to largest:\nkilo, micro, mega, centi, milli"},
- {id:"w1f",unit:1,topic:"Metric conversions",source:"Unit 1 Workbook · Worksheet 1.3 · Question 8",q:"Convert:\na. 2 Mm = __________ cm\nb. 5 m = __________ dm\nc. 1,000,000 μm = __________ m\nd. 2hm = ________ mm\ne. 1 km = ________ dam"},
- {id:"w1g",unit:1,topic:"Proportional reasoning",source:"Unit 1 Workbook · Worksheet 1.4 · Question 1",q:"A car travels at a constant speed. If you drive farther the time it takes to get there increases. Is this relationship direct or inverse? Explain your reasoning."},
- {id:"w1h",unit:1,topic:"Proportional reasoning",source:"Unit 1 Workbook · Worksheet 1.4 · Question 2",q:"A box has a constant acceleration as it is pushed across a horizontal surface. If the mass of the box is increased with the same force, the acceleration decreases. Is the relationship between the mass and the acceleration direct or inverse? Explain your reasoning."},
- {"id":"schoollab1","unit":1,"topic":"Metric conversions","source":"Physics 7 Scientific Practices Quiz · Question 1 · page 1","q":"Match the following values of meters to the equivalent prefix-meter by writing the letter to the left of the meter value. (7 points)\n\n0.003 m\n3,000 m\n0.03 m\n0.000003 m\n300 m\n3,000,000 m\n0.3 m\n\nA. 3 µm\nB. 3 mm\nC. 3 cm\nD. 3 dm\nE. 3 m\nF. 3 dam\nG. 3 hm\nH. 3 km\nI. 3 Mm"},
- {"id":"schoollab2","unit":1,"topic":"Scientific thinking","source":"Physics 7 Scientific Practices Quiz · Question 2 · page 1","q":"Provide two examples of the following: (4 points)\n\nQualitative Measurement\n\nQuantitative Measurement"},
- {"id":"schoollab3","unit":1,"topic":"Metric conversions","source":"Physics 7 Scientific Practices Quiz · Question 3 · page 1","q":"Convert the following SI units, show your work using fractions as demonstrated in class. (3 points each)\n\n14 mm = _______________ m\n51.8 kg = _______________ g\n23567 dm = ________________ Mm\n6.64 cs = ________________ µs"},
- {"id":"schoollab4","unit":1,"topic":"Scientific thinking","source":"Physics 7 Scientific Practices Quiz · Question 5 · page 2","q":"To determine the ideal feeding per cat, Ms. Cooper decides to feed Monte 1 cup, Bestie ½ cup, and Trainwreck 2 cups of cat food every day for a month. She records each cat’s weight once a week for the month.\n\nLabel the following:\na. Independent variable\nb. Dependent variable\nc. Constants (minimum 2)\nd. Label the graph axes below with your independent and dependent variables."},
- {"id":"schoollab5","unit":1,"topic":"Scientific thinking","source":"Physics 7 Scientific Practices Quiz · Question 6 · page 2","q":"In Biology class, a student measures a growing plant each week and records its height in the table shown. Graph the student’s data on the plot provided. Make sure to label your axes appropriately. (4 points)\n\nWeek 1: 2 cm\nWeek 2: 5 cm\nWeek 3: 8 cm\nWeek 4: 11 cm\nWeek 5: 14 cm"},
- {"id":"schoolunits1","unit":1,"topic":"Metric conversions","source":"Units and Unit Analysis · Physics 7 (2020–21) · slide 10","q":"54mm = ______ m"},
- {"id":"num01","unit":1,"topic":"Metric conversions","source":"Physics 7 Pre-Comp Review (2023) · Do Now W20D3","q":"Convert the following using unit multipliers:\n978.42 mL = __________ L"},
- {"id":"num02","unit":1,"topic":"Metric conversions","source":"Physics 7 Pre-Comp Review (2023) · Do Now W20D3","q":"Convert the following using unit multipliers:\n14.57 cs = ____________ Ms"},
- {"id":"num03","unit":1,"topic":"Metric conversions","source":"Physics 7 Pre-Comp Review (2023) · Do Now W20D3","q":"Convert the following using unit multipliers:\n60 days = ____________s"},
- {"id":"num04","unit":1,"topic":"Metric conversions","source":"Physics 7 Scientific Practices Lecture · White Boards","q":"0.024 m = _________________μm"},
- {"id":"num05","unit":1,"topic":"Metric conversions","source":"Physics 7 Scientific Practices Lecture · White Boards","q":"1.574 hm = ________________m"},
- {"id":"num06","unit":1,"topic":"Metric conversions","source":"Physics 7 Scientific Practices Lecture · White Boards","q":"7.54 m = _______________km"},
- {"id":"num07","unit":1,"topic":"Metric conversions","source":"Physics 7 Scientific Practices Lecture · Do Now","q":"1524 m = _____________dm"},
- {"id":"num08","unit":1,"topic":"Metric conversions","source":"Physics 7 Scientific Practices Lecture · Do Now","q":"87 Ms = _________________s"},
- {"id":"num09","unit":1,"topic":"Metric conversions","source":"Physics 7 Scientific Practices Lecture · Do Now","q":"0.52 A = _______________µA"},
- {"id":"num10","unit":1,"topic":"Metric conversions","source":"Physics 7 Scientific Practices Lecture · Do Now","q":"31.4mm = _________________cm"},
- {"id":"num11","unit":1,"topic":"Metric conversions","source":"Physics 7 Scientific Practices Lecture · Do Now","q":"4.65 hm _________________dm"},
- {"id":"num12","unit":2,"topic":"Acceleration","source":"Physics 7 Pre-Comp Review (2023) · White Boards","q":"A bike goes from 10 m/s to 2 m/s in 6 s. What is its acceleration?"},
- {"id":"num13","unit":3,"topic":"Mass and weight","source":"Physics 7 Pre-Comp Review (2023) · Do Now W21D1","q":"A. How much does a 54 kg person weigh on Earth?\nB. What about on the Moon (gmoon = 1.6 m/s²)"},
- {"id":"num14","unit":3,"topic":"Newton's laws","source":"Physics 7 Pre-Comp Review (2023) · White Boards","q":"What is the net force on a 3.6 kg block of wood that accelerates at 7.1 m/s²?"},
- {id:"w2a",unit:2,topic:"Distance and displacement",source:"Unit 2 Workbook · Worksheet 2.1 · Question 1",q:"If we define east as positive and west as negative, what direction is\na. -5 m\nb. 15 m"},
- {id:"w2b",unit:2,topic:"Distance and displacement",source:"Unit 2 Workbook · Worksheet 2.1 · Question 6",q:"Ebele starts standing at the 0 mark. He walks 3 meters to the right.\na. What is his final position?\nb. Calculate his displacement. Show your calculation.\nc. Is his displacement positive or negative? What does that tell you about direction?"},
- {id:"w2c",unit:2,topic:"Distance and displacement",source:"Unit 2 Workbook · Worksheet 2.1 · Question 8",q:"Ebele returns to the 0 mark to start again. This time he walks 2 meters to the left, turns around and walks 3 meters to the right.\na. Calculate Ebele’s total distance walked. Show your calculation.\nb. Calculate Ebele’s total displacement. Show your calculation.\nc. Explain why these two answers are different in this situation."},
- {id:"w2d",unit:2,topic:"Speed and velocity",source:"Unit 2 Workbook · Worksheet 2.2 · Question 4",q:"Fran walks 4 meters to the right in 2 seconds.\na. Calculate her speed. Show your calculation.\nb. Calculate her velocity. Show your calculation.\nc. Why are these answers similar but not exactly the same? Refer to what each quantity measures."},
- {id:"w2e",unit:2,topic:"Speed and velocity",source:"Unit 2 Workbook · Worksheet 2.2 · Question 7",q:"Fran walks at a speed of 3 m/s for 4 seconds. Calculate her distance traveled. Show your calculation."},
- {id:"w2f",unit:2,topic:"Speed and velocity",source:"Unit 2 Workbook · Worksheet 2.2 · Question 9",q:"Fran starts at 0 m and ends at +6 m in 3 seconds.\na. Calculate her displacement. Show your calculation.\nb. Calculate her average velocity."},
- {id:"w2graph",unit:2,topic:"Motion graphs",source:"Physics 7 Pre-Comp Study Packet (2023) · Question 21 · page 7",graphic:"assets/position-time-2023.svg",q:"Use the position-time graph to the right to answer the questions below. During what time interval(s) was the object…\na. moving with constant positive velocity?\nb. moving with constant negative velocity?\nc. at rest?\nd. What was the object’s displacement from 0-6s?\ne. What distance did it travel from 0-6s?"},
- {id:"w3a",unit:3,topic:"Types of forces",source:"Unit 3 Workbook · Worksheet 3.1 · Question 1",q:"A book is resting on a table.\na. What forces are acting on the book?\nb. Which forces are contact forces?\nc. Which forces act at a distance?"},
- {id:"w3b",unit:3,topic:"Types of forces",source:"Unit 3 Workbook · Worksheet 3.1 · Question 2",q:"A student pushes a box to the right across the floor at a constant speed.\na. What forces are acting on the box?\nb. What direction is friction acting? Explain."},
- {id:"w3c",unit:3,topic:"Types of forces",source:"Unit 3 Workbook · Worksheet 3.1 · Question 3",q:"A backpack is hanging from a hook by a strap.\na. What forces are acting on the backpack?\nb. What causes the upward force?"},
- {id:"w3d",unit:3,topic:"Types of forces",source:"Unit 3 Workbook · Worksheet 3.1 · Question 5",q:"A ball is thrown upward and is moving upward through the air. (Ignore air resistance.)\na. What forces are acting on the ball?\nb. Is there a force in the direction of motion? Explain."},
- {id:"w3e",unit:3,topic:"Types of forces",source:"Unit 3 Workbook · Worksheet 3.1 · Question 6",q:"A box is sliding to the left across the floor.\na. What direction is the friction force acting?\nb. Why does friction act in this direction?"}
- ],
- equations:[
- ["Displacement","Δx = xf - xi"],["Average speed","speed = distance / time"],["Average velocity","vavg = displacement / time"],
- ["Acceleration","a = (vf - vi) / t"],["Final velocity","vf = vi + at"],["Newton's second law","Fnet = ma"],
- ["Weight","Fg = mg"],["Friction","Ff = μFn"],["Normal force (flat, balanced)","Fn = Fg"]
- ]
+  "quizzes": [
+    {
+      "id": "s05",
+      "unit": 1,
+      "topic": "Metric prefixes",
+      "slide": 5,
+      "q": "The prefix for “hundredth” is:",
+      "options": [
+        "centi",
+        "deci",
+        "hecto",
+        "deca"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "s06",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "slide": 6,
+      "q": "Convert 0.000349 decimal megabytes (MB) to bytes. Use 1 MB = 1,000,000 bytes.",
+      "options": [
+        "0.0000000000349 bytes",
+        "0.349 bytes",
+        "349 bytes",
+        "349,000 bytes"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s11",
+      "unit": 2,
+      "topic": "Speed and velocity",
+      "slide": 11,
+      "q": "If a rabbit runs 840 m in 7 minutes, what is her speed?",
+      "options": [
+        "120 m/s",
+        "0.5 m/s",
+        "2 m/s",
+        "60 m/s"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s12",
+      "unit": 2,
+      "topic": "Speed and velocity",
+      "slide": 12,
+      "q": "A bus travels east at 12 m/s relative to the ground. A passenger walks west along the aisle at 1.5 m/s relative to the bus. What is the passenger’s velocity relative to the ground?",
+      "options": [
+        "10.5 m/s W",
+        "10.5 m/s E",
+        "13.5 m/s W",
+        "13.5 m/s E"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "s13",
+      "unit": 2,
+      "topic": "Speed and velocity",
+      "slide": 13,
+      "q": "To determine the total distance something traveled, you need to know:",
+      "options": [
+        "its average speed and total time",
+        "its total speed and average time",
+        "its instantaneous speed and acceleration",
+        "its speed and direction"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "s14",
+      "unit": 2,
+      "topic": "Acceleration",
+      "slide": 14,
+      "q": "Herman is running South while slowing down. The direction of his velocity and acceleration are:",
+      "options": [
+        "South, south",
+        "South, north",
+        "North, south",
+        "North, north"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "s15",
+      "unit": 2,
+      "topic": "Acceleration",
+      "slide": 15,
+      "q": "The definition of “accelerate” is to:",
+      "options": [
+        "speed up",
+        "slow down",
+        "change your velocity",
+        "change direction"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s17",
+      "unit": 2,
+      "topic": "Distance and displacement",
+      "slide": 17,
+      "q": "After walking to the store and then back home, how does total distance traveled compare with the magnitude of displacement?",
+      "options": [
+        "Distance equals the magnitude of displacement",
+        "Distance is less than the magnitude of displacement",
+        "Distance is greater than the magnitude of displacement",
+        "There is no relationship between distance and displacement"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s30",
+      "unit": 3,
+      "topic": "Mass and weight",
+      "slide": 30,
+      "q": "Mass is:",
+      "options": [
+        "the quantity of matter in an object",
+        "a measure of an object’s weight",
+        "a measure of an object’s inertia",
+        "both a and c are true"
+      ],
+      "answer": 3
+    },
+    {
+      "id": "s31",
+      "unit": 3,
+      "topic": "Mass and weight",
+      "slide": 31,
+      "q": "The weight of an object:",
+      "options": [
+        "is the force acting on the object due to gravity",
+        "is the same as the object’s mass",
+        "can never change",
+        "determines the object’s inertia"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "s32",
+      "unit": 3,
+      "topic": "Gravity",
+      "slide": 32,
+      "q": "Under the force of gravity alone, objects on earth will accelerate at ___________ in a direction that ___________.",
+      "options": [
+        "9.8 m/s²; is always downward",
+        "9.8 m/s²; depends on the direction the object was moving",
+        "8.9 m/s²; depends on the direction the object was moving",
+        "8.9 m/s²; is always downward"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "s33",
+      "unit": 3,
+      "topic": "Newton's laws",
+      "slide": 33,
+      "q": "Newton’s 1st Law of Motion tells us that an object won’t ______________ unless an unbalanced force acts on it.",
+      "options": [
+        "move",
+        "accelerate",
+        "change its velocity",
+        "both b and c are correct"
+      ],
+      "answer": 3
+    },
+    {
+      "id": "s34",
+      "unit": 3,
+      "topic": "Newton's laws",
+      "slide": 34,
+      "q": "Newton’s 3rd Law of Motion states that for an action/reaction pair of forces:",
+      "options": [
+        "both objects experience identical forces",
+        "the object of lesser mass experiences a greater force",
+        "the object of greater mass experiences a greater force",
+        "both objects experience equal amounts of force but in opposite directions"
+      ],
+      "answer": 3
+    },
+    {
+      "id": "s35",
+      "unit": 3,
+      "topic": "Newton's laws",
+      "slide": 35,
+      "q": "Action-Reaction forces don’t cancel because…",
+      "options": [
+        "The objects experience different amounts of force",
+        "Incorrect statement, they do cancel",
+        "The forces occur at different times",
+        "The forces act on different objects"
+      ],
+      "answer": 3
+    },
+    {
+      "id": "s36",
+      "unit": 3,
+      "topic": "Types of forces",
+      "slide": 36,
+      "q": "A normal force…",
+      "options": [
+        "exists when an object is hanging from a rope",
+        "is produced by gravity",
+        "is produced by a surface",
+        "both b and c are true"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s37",
+      "unit": 3,
+      "topic": "Equilibrium",
+      "slide": 37,
+      "q": "Can an object in motion be in equilibrium?",
+      "options": [
+        "Yes, if it is accelerating at a constant rate",
+        "No, equilibrium means not moving!",
+        "Yes, if it is moving at constant velocity",
+        "Yes, but only if the forces acting on it are unbalanced"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s38",
+      "unit": 3,
+      "topic": "Equilibrium",
+      "slide": 38,
+      "q": "An 8 kg block is pushed to the right with 60 N of force along a level surface. It travels right in a straight line at a constant velocity of 2 m/s. What is the net force acting on it?",
+      "options": [
+        "0 N",
+        "50 N",
+        "60 N",
+        "120 N"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "s39",
+      "unit": 3,
+      "topic": "Friction",
+      "slide": 39,
+      "q": "An 8 kg block is pushed to the right with 60 N of force along a level surface. It slides right in a straight line at a constant velocity of 2 m/s. What is the magnitude of the kinetic friction force?",
+      "options": [
+        "0 N",
+        "50 N",
+        "60 N",
+        "120 N"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s41",
+      "unit": 3,
+      "topic": "Newton's laws",
+      "slide": 41,
+      "q": "Which statement concerning Newton’s Second Law is incorrect? Compare acceleration and mass with net force held constant, and acceleration and net force with mass held constant.",
+      "options": [
+        "The acceleration of an object is directly proportional to its mass",
+        "The acceleration of an object is directly proportional to the net force acting on it",
+        "The acceleration of an object is inversely proportional to its mass",
+        "An object will accelerate in the direction of the net force acting on it"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "s42",
+      "unit": 3,
+      "topic": "Newton's laws",
+      "slide": 42,
+      "q": "A hockey puck is given a single push and then travels in a straight line across idealized frictionless ice at 3 m/s. Assume there are no further horizontal forces. What happens to its velocity as time passes?",
+      "options": [
+        "It slows down",
+        "It stops",
+        "It continues at 3 m/s",
+        "It speeds up"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s43",
+      "unit": 3,
+      "topic": "Friction",
+      "slide": 43,
+      "q": "Which statement describes the force that must be exerted to maintain a constant velocity while sliding a box?",
+      "options": [
+        "The force is equal to the friction force.",
+        "The force is not related to the friction force.",
+        "The force is slightly greater than the friction force.",
+        "The force is slightly less than the friction force."
+      ],
+      "answer": 0
+    },
+    {
+      "id": "s44",
+      "unit": 3,
+      "topic": "Friction",
+      "slide": 44,
+      "q": "A 5 kg block slides left on a level surface while being pushed horizontally with 20 N to the left. It accelerates at 2 m/s² to the left. Assume kinetic friction is the only other horizontal force and use g = 9.8 m/s². Calculate the coefficient of kinetic friction.",
+      "options": [
+        "0.20",
+        "0.61",
+        "1.64",
+        "5.00"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "s48",
+      "unit": 3,
+      "topic": "Newton's laws",
+      "slide": 48,
+      "q": "A 10 kg bowling ball collides with a 1 kg pin. Which object experiences a larger force during the collision?",
+      "options": [
+        "The pin",
+        "The bowling ball",
+        "They both experience the same force",
+        "You need the acceleration to determine"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "s49",
+      "unit": 3,
+      "topic": "Newton's laws",
+      "slide": 49,
+      "q": "A 10 kg bowling ball collides with a 1 kg pin. Which object experiences a larger acceleration due to the collision?",
+      "options": [
+        "The pin",
+        "The bowling ball",
+        "They have the same acceleration",
+        "You need the applied force to determine"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "s69",
+      "unit": 3,
+      "topic": "Equilibrium",
+      "slide": 69,
+      "q": "A 1 kg object on Earth is acted on by 4 forces: gravity, a friction force of 38 N to the left, a normal force of 9.8 N up and 1 unknown force. It moves to the right with constant velocity of 10 m/s. What is the net force on the object?",
+      "options": [
+        "48 N to the right",
+        "0 N",
+        "10 N to the right",
+        "You must know the unknown force to calculate net force"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "s70",
+      "unit": 2,
+      "topic": "Acceleration",
+      "slide": 70,
+      "q": "Which of the following objects is accelerating? Choose all that apply.",
+      "options": [
+        "Carl walks south in a straight line at a constant velocity of 1.5 m/s.",
+        "A car turns a corner at 5 m/s.",
+        "Jess speeds up on her bicycle when she leaves her friend’s house.",
+        "An airplane slows down as it approaches the runway"
+      ],
+      "answer": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "s71",
+      "unit": 3,
+      "topic": "Equilibrium",
+      "slide": 71,
+      "q": "Which of these could be changing for an object that experiences no net external force?",
+      "options": [
+        "Position",
+        "Speed",
+        "Velocity",
+        "Acceleration"
+      ],
+      "answer": 0
+    },
+    {
+      "id": "s72",
+      "unit": 3,
+      "topic": "Newton's laws",
+      "slide": 72,
+      "q": "An insect hits a truck windshield. Let Ft be the magnitude of the force the truck exerts on the insect and Fi the magnitude of the force the insect exerts on the truck. How do these force magnitudes compare?",
+      "options": [
+        "Ft > Fi",
+        "Ft = Fi",
+        "Ft < Fi",
+        "There is no relationship between the forces"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "s73",
+      "unit": 3,
+      "topic": "Mass and weight",
+      "slide": 73,
+      "q": "Which of the following would have the most inertia?",
+      "options": [
+        "A 4 kg cat moving at 2 m/s.",
+        "A 5 kg cat moving at 3 m/s.",
+        "A 400 kg elephant moving at 1 m/s.",
+        "A 500 kg elephant that is at rest."
+      ],
+      "answer": 3
+    }
+  ],
+  "workbook": [
+    {
+      "id": "w1a",
+      "unit": 1,
+      "topic": "Scientific thinking",
+      "source": "Unit 1 Workbook · Worksheet 1.1 · Question 1",
+      "q": "Define each term in your own words:\na. Variable\nb. Constant\nc. Unit\nd. Physical Quantity"
+    },
+    {
+      "id": "w1b",
+      "unit": 1,
+      "topic": "Scientific thinking",
+      "source": "Unit 1 Workbook · Worksheet 1.1 · Question 3",
+      "q": "A student tests how sunlight affects plant growth using three different plants. All receive the same amount of water, soil type, and pot size, but receive 12, 6, and 2 hours of sunlight respectively.\na. Identify the variable deliberately changed.\nb. Identify one controlled condition.\nc. Explain why using different plants makes it difficult to attribute growth differences only to sunlight."
+    },
+    {
+      "id": "w1c",
+      "unit": 1,
+      "topic": "Scientific thinking",
+      "source": "Unit 1 Workbook · Worksheet 1.1 · Question 4",
+      "q": "Explain the difference between a formula and an equation in your own words."
+    },
+    {
+      "id": "w1d",
+      "unit": 1,
+      "topic": "SI units",
+      "source": "Unit 1 Workbook · Worksheet 1.2 · Question 1",
+      "q": "Which of the following listed units are SI base units? Circle all that apply. (This list contains four of the seven SI base units.)\nm      kg     m/s     s     K     m²"
+    },
+    {
+      "id": "w1e",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Unit 1 Workbook · Worksheet 1.3 · Question 1",
+      "q": "Put these prefixes in order from smallest to largest:\nkilo, micro, mega, centi, milli"
+    },
+    {
+      "id": "w1f",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Unit 1 Workbook · Worksheet 1.3 · Question 8",
+      "q": "Convert:\na. 2 Mm = __________ cm\nb. 5 m = __________ dm\nc. 1,000,000 μm = __________ m\nd. 2hm = ________ mm\ne. 1 km = ________ dam"
+    },
+    {
+      "id": "w1g",
+      "unit": 1,
+      "topic": "Proportional reasoning",
+      "source": "Unit 1 Workbook · Worksheet 1.4 · Question 1",
+      "q": "A car travels at a constant speed. If you drive farther the time it takes to get there increases. Is this relationship direct or inverse? Explain your reasoning."
+    },
+    {
+      "id": "w1h",
+      "unit": 1,
+      "topic": "Proportional reasoning",
+      "source": "Unit 1 Workbook · Worksheet 1.4 · Question 2",
+      "q": "A box is acted on by the same constant NET force on a horizontal surface. If its mass increases, its acceleration decreases. Is the relationship between mass and acceleration direct or inverse? Explain why keeping net force constant matters."
+    },
+    {
+      "id": "schoollab1",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Physics 7 Scientific Practices Quiz · Question 1 · page 1",
+      "q": "Match the following values of meters to the equivalent prefix-meter by writing the letter to the left of the meter value. (7 points)\n\n0.003 m\n3,000 m\n0.03 m\n0.000003 m\n300 m\n3,000,000 m\n0.3 m\n\nA. 3 µm\nB. 3 mm\nC. 3 cm\nD. 3 dm\nE. 3 m\nF. 3 dam\nG. 3 hm\nH. 3 km\nI. 3 Mm"
+    },
+    {
+      "id": "schoollab2",
+      "unit": 1,
+      "topic": "Scientific thinking",
+      "source": "Physics 7 Scientific Practices Quiz · Question 2 · page 1",
+      "q": "Provide two examples of each kind:\na. Qualitative observations (descriptions without numbers)\nb. Quantitative measurements (numerical measurements with appropriate units)\nExplain how these differ."
+    },
+    {
+      "id": "schoollab3",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Physics 7 Scientific Practices Quiz · Question 3 · page 1",
+      "q": "Convert each SI unit, showing work with fraction-style unit multipliers and unit cancellation, as in class. Use paper or the work/notes box below to show the conversion factors.\na. 14 mm = ______ m\nb. 51.8 kg = ______ g\nc. 23567 dm = ______ Mm\nd. 6.64 cs = ______ µs"
+    },
+    {
+      "id": "schoollab4",
+      "unit": 1,
+      "topic": "Scientific thinking",
+      "source": "Physics 7 Scientific Practices Quiz · Question 5 · page 2",
+      "q": "Ms. Cooper feeds three different cats different daily food amounts for one month: Monte gets 1 cup, Bestie gets ½ cup, and Trainwreck gets 2 cups. She records each cat’s weight once a week.\na. What is the intended independent variable?\nb. What dependent measurement is recorded each week? What change over time could be calculated?\nc. List at least two controlled conditions.\nd. On paper, sketch a graph with food amount on the horizontal axis and change in weight over the month on the vertical axis. Record the axis labels in your notes.\ne. Explain why differences between the cats make a causal conclusion uncertain."
+    },
+    {
+      "id": "schoollab5",
+      "unit": 1,
+      "topic": "Scientific thinking",
+      "source": "Physics 7 Scientific Practices Quiz · Question 6 · page 2",
+      "q": "A student records plant height each week. On paper, graph the measurements, label both axes and their units, and record your axis labels or plotting work in the notes field below.\nWeek 1: 2 cm\nWeek 2: 5 cm\nWeek 3: 8 cm\nWeek 4: 11 cm\nWeek 5: 14 cm"
+    },
+    {
+      "id": "schoolunits1",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Units and Unit Analysis · Physics 7 (2020–21) · slide 10",
+      "q": "54mm = ______ m"
+    },
+    {
+      "id": "num01",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Physics 7 Pre-Comp Review (2023) · Do Now W20D3",
+      "q": "Convert the following using unit multipliers:\n978.42 mL = __________ L"
+    },
+    {
+      "id": "num02",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Physics 7 Pre-Comp Review (2023) · Do Now W20D3",
+      "q": "Convert the following using unit multipliers:\n14.57 cs = ____________ Ms"
+    },
+    {
+      "id": "num03",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Physics 7 Pre-Comp Review (2023) · Do Now W20D3",
+      "q": "Convert the following using unit multipliers:\n60 days = ____________s"
+    },
+    {
+      "id": "num04",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Physics 7 Scientific Practices Lecture · White Boards",
+      "q": "0.024 m = _________________μm"
+    },
+    {
+      "id": "num05",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Physics 7 Scientific Practices Lecture · White Boards",
+      "q": "1.574 hm = ________________m"
+    },
+    {
+      "id": "num06",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Physics 7 Scientific Practices Lecture · White Boards",
+      "q": "7.54 m = _______________km"
+    },
+    {
+      "id": "num07",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Physics 7 Scientific Practices Lecture · Do Now",
+      "q": "1524 m = _____________dm"
+    },
+    {
+      "id": "num08",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Physics 7 Scientific Practices Lecture · Do Now",
+      "q": "87 Ms = _________________s"
+    },
+    {
+      "id": "num09",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Physics 7 Scientific Practices Lecture · Do Now",
+      "q": "0.52 A = _______________µA"
+    },
+    {
+      "id": "num10",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Physics 7 Scientific Practices Lecture · Do Now",
+      "q": "31.4mm = _________________cm"
+    },
+    {
+      "id": "num11",
+      "unit": 1,
+      "topic": "Metric conversions",
+      "source": "Physics 7 Scientific Practices Lecture · Do Now",
+      "q": "4.65 hm = ______ dm"
+    },
+    {
+      "id": "num12",
+      "unit": 2,
+      "topic": "Acceleration",
+      "source": "Physics 7 Pre-Comp Review (2023) · White Boards",
+      "q": "A bike slows from 10 m/s to 2 m/s in 6 s. Take the bike’s initial direction of travel as positive. What is its average acceleration?"
+    },
+    {
+      "id": "num13",
+      "unit": 3,
+      "topic": "Mass and weight",
+      "source": "Physics 7 Pre-Comp Review (2023) · Do Now W21D1",
+      "q": "A 54 kg person is weighed in two locations. Use gEarth = 9.8 m/s² and gMoon = 1.6 m/s².\nA. Calculate the person's weight on Earth (N).\nB. Calculate the person's weight on the Moon (N)."
+    },
+    {
+      "id": "num14",
+      "unit": 3,
+      "topic": "Newton's laws",
+      "source": "Physics 7 Pre-Comp Review (2023) · White Boards",
+      "q": "What is the net force (N) on a 3.6 kg block of wood that accelerates at 7.1 m/s²? Report to the nearest hundredth or nearest tenth."
+    },
+    {
+      "id": "w2a",
+      "unit": 2,
+      "topic": "Distance and displacement",
+      "source": "Unit 2 Workbook · Worksheet 2.1 · Question 1",
+      "q": "If we define east as positive and west as negative, what direction is\na. -5 m\nb. 15 m"
+    },
+    {
+      "id": "w2b",
+      "unit": 2,
+      "topic": "Distance and displacement",
+      "source": "Unit 2 Workbook · Worksheet 2.1 · Question 6",
+      "q": "Ebele starts standing at the 0 mark. He walks 3 meters to the right.\na. What is his final position?\nb. Calculate his displacement. Show your calculation.\nc. Is his displacement positive or negative? What does that tell you about direction?"
+    },
+    {
+      "id": "w2c",
+      "unit": 2,
+      "topic": "Distance and displacement",
+      "source": "Unit 2 Workbook · Worksheet 2.1 · Question 8",
+      "q": "Ebele returns to the 0 mark to start again. This time he walks 2 meters to the left, turns around and walks 3 meters to the right.\na. Calculate Ebele’s total distance walked. Show your calculation.\nb. Calculate Ebele’s total displacement. Show your calculation.\nc. Explain why these two answers are different in this situation."
+    },
+    {
+      "id": "w2d",
+      "unit": 2,
+      "topic": "Speed and velocity",
+      "source": "Unit 2 Workbook · Worksheet 2.2 · Question 4",
+      "q": "Fran walks 4 meters to the right in 2 seconds.\na. Calculate her speed. Show your calculation.\nb. Calculate her velocity. Show your calculation.\nc. Why are these answers similar but not exactly the same? Refer to what each quantity measures."
+    },
+    {
+      "id": "w2e",
+      "unit": 2,
+      "topic": "Speed and velocity",
+      "source": "Unit 2 Workbook · Worksheet 2.2 · Question 7",
+      "q": "Fran walks at a speed of 3 m/s for 4 seconds. Calculate her distance traveled. Show your calculation."
+    },
+    {
+      "id": "w2f",
+      "unit": 2,
+      "topic": "Speed and velocity",
+      "source": "Unit 2 Workbook · Worksheet 2.2 · Question 9",
+      "q": "Fran starts at 0 m and ends at +6 m in 3 seconds.\na. Calculate her displacement. Show your calculation.\nb. Calculate her average velocity."
+    },
+    {
+      "id": "w2graph",
+      "unit": 2,
+      "topic": "Motion graphs",
+      "source": "Physics 7 Pre-Comp Study Packet (2023) · Question 21 · page 7",
+      "graphic": "assets/position-time-2023.svg",
+      "q": "Use the position-time graph to the right to answer the questions below. During what time interval(s) was the object…\na. moving with constant positive velocity?\nb. moving with constant negative velocity?\nc. at rest?\nd. What was the object’s displacement from 0-6s?\ne. What distance did it travel from 0-6s?"
+    },
+    {
+      "id": "w3a",
+      "unit": 3,
+      "topic": "Types of forces",
+      "source": "Unit 3 Workbook · Worksheet 3.1 · Question 1",
+      "q": "A book is resting on a table.\na. What forces are acting on the book?\nb. Which forces are contact forces?\nc. Which forces act at a distance?"
+    },
+    {
+      "id": "w3b",
+      "unit": 3,
+      "topic": "Types of forces",
+      "source": "Unit 3 Workbook · Worksheet 3.1 · Question 2",
+      "q": "A student pushes a box to the right across a level floor in a straight line at constant speed.\na. What forces are acting on the box?\nb. Which way does kinetic friction act? Explain."
+    },
+    {
+      "id": "w3c",
+      "unit": 3,
+      "topic": "Types of forces",
+      "source": "Unit 3 Workbook · Worksheet 3.1 · Question 3",
+      "q": "A backpack is hanging from a hook by a strap.\na. What forces are acting on the backpack?\nb. What causes the upward force?"
+    },
+    {
+      "id": "w3d",
+      "unit": 3,
+      "topic": "Types of forces",
+      "source": "Unit 3 Workbook · Worksheet 3.1 · Question 5",
+      "q": "A ball is thrown upward and is moving upward through the air. (Ignore air resistance.)\na. What forces are acting on the ball?\nb. Is there a force in the direction of motion? Explain."
+    },
+    {
+      "id": "w3e",
+      "unit": 3,
+      "topic": "Types of forces",
+      "source": "Unit 3 Workbook · Worksheet 3.1 · Question 6",
+      "q": "A box is sliding to the left across the floor.\na. What direction is the friction force acting?\nb. Why does friction act in this direction?"
+    }
+  ],
+  "equations": [
+    [
+      "Displacement",
+      "Δx = xf - xi"
+    ],
+    [
+      "Average speed",
+      "speed = distance / time"
+    ],
+    [
+      "Average velocity",
+      "vavg = displacement / time"
+    ],
+    [
+      "Acceleration",
+      "a = (vf - vi) / t"
+    ],
+    [
+      "Final velocity",
+      "vf = vi + at"
+    ],
+    [
+      "Newton's second law",
+      "Fnet = ma"
+    ],
+    [
+      "Weight",
+      "Fg = mg"
+    ],
+    [
+      "Friction",
+      "Ff = μFn"
+    ],
+    [
+      "Normal force (flat, balanced)",
+      "Fn = Fg"
+    ]
+  ]
 };
