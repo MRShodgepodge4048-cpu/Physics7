@@ -1,4 +1,4 @@
-/* Physics 7 guided explanation steps for existing school-supplied questions. No new physics questions are authored here. */
+/* Three-step explanations for published school review questions; final steps follow student attempts. */
 window.PHYSICS7_STEPS = {
   "quizzes": {
     "s05": [
@@ -7,9 +7,9 @@ window.PHYSICS7_STEPS = {
       "The metric prefix for 10^-2 is centi-."
     ],
     "s06": [
-      "Identify the prefix: Mega means 1,000,000.",
-      "Convert to the smaller unit by multiplying: 0.000349 × 1,000,000.",
-      "The result is 349 bytes."
+      "Remember that decimal mega (M) means 10^6 bytes, not the binary megabyte convention.",
+      "Use bytes = 0.000349 × 1,000,000.",
+      "The conversion gives 349 bytes."
     ],
     "s11": [
       "Known: distance = 840 m; time = 7 minutes.",
@@ -17,9 +17,9 @@ window.PHYSICS7_STEPS = {
       "Use speed = distance / time; 840 / 420 = 2 m/s."
     ],
     "s12": [
-      "Choose east as positive: bus velocity = +12 m/s.",
-      "The passenger moves west at -1.5 m/s relative to the bus.",
-      "Add velocities: 12 + (-1.5) = 10.5 m/s east."
+      "Choose east as positive and keep the reference frames separate: bus velocity is +12 m/s relative to ground.",
+      "The passenger walks at -1.5 m/s relative to the bus; add the velocities.",
+      "Velocity relative to the ground = 12 + (-1.5) = 10.5 m/s east."
     ],
     "s13": [
       "Start with average speed = total distance / total time.",
@@ -37,9 +37,9 @@ window.PHYSICS7_STEPS = {
       "The best general definition is a change in velocity."
     ],
     "s17": [
-      "Distance is the full length of the traveled path.",
-      "Displacement is the difference between final and initial position.",
-      "Returning home makes displacement 0 while distance stays greater than 0."
+      "Total distance adds the entire trip to the store and back.",
+      "Displacement is final position minus initial position; its magnitude is never negative.",
+      "Returning home gives displacement magnitude 0 while total distance is greater than 0."
     ],
     "s30": [
       "Mass describes how much matter is in an object.",
@@ -82,24 +82,24 @@ window.PHYSICS7_STEPS = {
       "An object can move at constant velocity while in equilibrium."
     ],
     "s38": [
-      "The box travels at constant velocity (2 m/s).",
-      "Constant velocity means acceleration is zero.",
-      "Use Fnet = ma: 8 kg × 0 m/s² = 0 N."
+      "Constant straight-line velocity (2 m/s right) means acceleration = 0.",
+      "Use Fnet = ma and m = 8 kg.",
+      "The net force is 8 × 0 = 0 N."
     ],
     "s39": [
-      "The box travels at constant velocity, so net horizontal force = 0 N.",
-      "Applied force to the right is 60 N; friction must balance it to the left.",
-      "Friction magnitude is 60 N."
+      "A straight line at constant velocity has zero acceleration and zero horizontal net force.",
+      "The applied force is 60 N right and friction is the opposing horizontal force.",
+      "The kinetic friction magnitude is 60 N, directed left."
     ],
     "s41": [
-      "Newton's Second Law can be rearranged: a = Fnet / m.",
-      "If Fnet is fixed, acceleration decreases when mass increases.",
-      "The incorrect statement says acceleration is directly proportional to mass."
+      "Use Newton's Second Law: a = Fnet / m.",
+      "Hold mass fixed when comparing acceleration with net force; hold net force fixed when comparing acceleration with mass.",
+      "The incorrect option says acceleration is directly proportional to mass."
     ],
     "s42": [
-      "Once the push ends, the ice is frictionless in the problem.",
-      "There is no net force to change the puck's velocity.",
-      "By Newton's First Law, it keeps moving at 3 m/s."
+      "The puck has no continuing horizontal force after the push; friction is idealized as absent.",
+      "Newton's First Law says constant net-zero force means constant velocity.",
+      "The puck continues at 3 m/s in the same direction."
     ],
     "s43": [
       "Maintaining constant velocity requires zero acceleration.",
@@ -107,9 +107,9 @@ window.PHYSICS7_STEPS = {
       "The applied force must equal the opposing frictional force."
     ],
     "s44": [
-      "Known: m = 5 kg, applied force = 20 N left, acceleration = 2 m/s² left.",
-      "Required net force = ma = 5 × 2 = 10 N left. The frictional force opposing motion is 20 - 10 = 10 N right.",
-      "On a level surface, Fn = mg = 5 × 9.8 = 49 N. Use μ = Ff / Fn = 10 / 49 ≈ 0.20."
+      "Take left as positive. The applied push is 20 N left and net force is ma = 5 × 2 = 10 N left.",
+      "Friction opposes leftward sliding, so it is 10 N right. On level ground Fn = mg = 49 N.",
+      "The kinetic coefficient μk = Ff / Fn = 10 / 49 ≈ 0.20."
     ],
     "s48": [
       "The bowling ball and pin push on one another during collision.",
@@ -127,19 +127,19 @@ window.PHYSICS7_STEPS = {
       "Therefore Fnet = ma = 1 × 0 = 0 N, regardless of which individual force was unknown."
     ],
     "s70": [
-      "Acceleration occurs whenever velocity changes.",
-      "Turning changes direction; speeding up or slowing down changes speed.",
-      "Select the turning car, speeding cyclist, and slowing airplane; exclude constant-velocity walking."
+      "Acceleration is a change in velocity, which includes changes in speed or direction.",
+      "Constant straight-line walking at 1.5 m/s south does not change velocity.",
+      "Turning, speeding up and slowing down are acceleration: choose B, C and D."
     ],
     "s71": [
-      "Zero net external force means zero acceleration.",
-      "Zero acceleration means velocity remains constant, but position can still change as an object moves.",
-      "Position could be changing, even though speed, velocity, and acceleration do not change."
+      "Zero net external force means acceleration is zero.",
+      "Velocity remains constant, but the object may still be moving.",
+      "Position may be changing even when speed and velocity stay constant."
     ],
     "s72": [
-      "The insect and truck exert forces on each other during impact.",
-      "Newton's Third Law requires equal magnitude and opposite direction.",
-      "The magnitudes satisfy Ft = Fi."
+      "Each object exerts a force on the other during a collision.",
+      "Newton's Third Law says the forces have equal MAGNITUDES, opposite directions and act on different objects.",
+      "Therefore the magnitudes satisfy Ft = Fi. The force vectors themselves point in opposite directions."
     ],
     "s73": [
       "Inertia is associated with an object's mass, not whether it is currently moving.",
@@ -154,9 +154,9 @@ window.PHYSICS7_STEPS = {
       "A physical quantity is something measurable and stated with a number and unit. Check all four definitions."
     ],
     "w1b": [
-      "Find what the student changes: hours of sunlight.",
-      "Compare what is held the same: water, soil, and pot size.",
-      "Sunlight exposure is the changed variable; the repeated conditions are constants."
+      "Identify the changed condition: hours of sunlight received.",
+      "Identify controls: equal soil type, water amount and pot size.",
+      "Different plants can have inherently different growth rates; results cannot establish sunlight alone as the cause."
     ],
     "w1c": [
       "Look for the equals sign: equations state equality.",
@@ -164,9 +164,9 @@ window.PHYSICS7_STEPS = {
       "Explain that a formula is a specific kind of equation, not a separate unrelated object."
     ],
     "w1d": [
-      "Recall the four course SI base units: meter, kilogram, second, kelvin.",
-      "A unit such as m/s or m² combines base units, making it derived.",
-      "Circle m, kg, s, and K; do not circle m/s or m²."
+      "The listed SI base units are m, kg, s and K.",
+      "m/s and m² are derived from base units.",
+      "These are four examples from the full set of seven SI base units."
     ],
     "w1e": [
       "Assign each prefix its power: micro = 10^-6, milli = 10^-3, centi = 10^-2.",
@@ -184,9 +184,9 @@ window.PHYSICS7_STEPS = {
       "When distance rises by a factor, time rises by that factor too: direct proportion."
     ],
     "w1h": [
-      "Keep net force constant as stated.",
-      "Rearrange Fnet = ma to a = Fnet / m.",
-      "With force fixed, a larger mass gives a smaller acceleration: inverse proportion."
+      "Distinguish applied force from NET force: their values may differ because of friction.",
+      "Use Newton's Second Law a = Fnet / m with a fixed net force.",
+      "Increasing mass with unchanged net force decreases acceleration, an inverse relationship."
     ],
     "schoollab1": [
       "Recall the prefixes: micro 10^-6; milli 10^-3; centi 10^-2; deci 10^-1.",
@@ -194,24 +194,24 @@ window.PHYSICS7_STEPS = {
       "Convert each meter value and match the choices in order: B, H, C, A, G, I, D."
     ],
     "schoollab2": [
-      "Read each observation and ask whether it gives a numerical quantity.",
-      "Non-numerical descriptions are qualitative. Quantities written with a number and a unit are quantitative.",
-      "Check that you wrote two distinct examples of each kind."
+      "A qualitative observation describes a feature without a numeric measurement.",
+      "A quantitative measurement specifies a number and appropriate unit.",
+      "Choose two distinct examples of each, and explain their difference."
     ],
     "schoollab3": [
-      "For each item, write starting quantity and the destination unit.",
-      "Use unit multipliers so the starting unit cancels. Work through the prefix changes before calculating.",
-      "Check each result against the solution guide and retain the requested final unit."
+      "Write the start unit and destination unit for each problem.",
+      "Build a fraction multiplier with the starting unit in the denominator, so it cancels. Show this in your notes or on paper.",
+      "Multiply or divide and report each result with the correct final unit."
     ],
     "schoollab4": [
-      "Identify the manipulated condition: the amount of food given to each cat.",
-      "Identify the recorded result: cat weight over time. Food amount belongs on the x-axis; weight or change in weight on the y-axis.",
-      "List conditions held consistent where possible; note that different cats introduce another source of variation."
+      "The intended variable is daily food volume; weight is measured each week.",
+      "For the requested graph use food volume on the x-axis and month-long weight change on the y-axis, drawn on paper.",
+      "Individual cats differ, so one cannot attribute all variation to feeding amount alone."
     ],
     "schoollab5": [
-      "Place Week on the x-axis and Height (cm) on the y-axis.",
-      "Plot (1,2), (2,5), (3,8), (4,11), and (5,14).",
-      "Use an even scale and confirm the graph shows increasing height over time."
+      "Label Week on the horizontal axis and Height (cm) on the vertical axis of your paper graph.",
+      "Plot all five given points in time order on an even scale.",
+      "Confirm that the height increases by 3 cm per week; record the axis labels in your notes."
     ],
     "schoolunits1": [
       "Known: 54 mm. Wanted: meters.",
@@ -269,24 +269,24 @@ window.PHYSICS7_STEPS = {
       "31.4 / 10 = 3.14 cm."
     ],
     "num11": [
-      "Known: 4.65 hm. Wanted: decimeters.",
-      "Convert first to meters: 4.65 × 100 = 465 m.",
-      "Convert meters to decimeters: 465 × 10 = 4,650 dm."
+      "Known: 4.65 hm; wanted: dm.",
+      "1 hm = 100 m; 1 m = 10 dm.",
+      "4.65 × 100 × 10 = 4,650 dm."
     ],
     "num12": [
-      "Known: vi = 10 m/s, vf = 2 m/s, t = 6 s.",
-      "Choose a = (vf - vi) / t.",
-      "Substitute: a = (2 - 10) / 6 = -8 / 6 ≈ -1.33 m/s²."
+      "Take the initial direction of travel as positive. Known vi = 10 m/s, vf = 2 m/s, t = 6 s.",
+      "Use a = (vf - vi) / t.",
+      "a = (2 - 10) / 6 = -8 / 6 ≈ -1.33 m/s², opposite the initial motion."
     ],
     "num13": [
-      "Known: m = 54 kg. Use g = 9.8 m/s² on Earth and 1.6 m/s² on the Moon.",
-      "Use Fg = mg for weight (not mass).",
-      "Earth: 54 × 9.8 = 529.2 N; Moon: 54 × 1.6 = 86.4 N. Some class exercises round Earth's g to 10 m/s²."
+      "Known: m = 54 kg; gEarth = 9.8 m/s²; gMoon = 1.6 m/s².",
+      "Use weight Fg = mg separately for Earth and Moon.",
+      "Earth: 529.2 N. Moon: 86.4 N. Mass remains 54 kg."
     ],
     "num14": [
-      "Known: m = 3.6 kg, a = 7.1 m/s². Wanted: net force.",
-      "Choose Fnet = ma.",
-      "Fnet = 3.6 × 7.1 = 25.56 N, about 25.6 N when rounded."
+      "Known: m = 3.6 kg, a = 7.1 m/s². Wanted: Fnet in newtons.",
+      "Use Fnet = ma.",
+      "Multiply 3.6 × 7.1 = 25.56 N, or 25.6 N to the nearest tenth."
     ],
     "w2a": [
       "The direction convention is east positive; west negative.",
@@ -329,9 +329,9 @@ window.PHYSICS7_STEPS = {
       "Gravity is non-contact; the normal force is a contact force."
     ],
     "w3b": [
-      "Draw the forces acting on the box: push right, friction left, gravity down, normal force up.",
-      "Constant speed in a straight line means acceleration = 0.",
-      "Therefore net force = 0, so the applied and frictional forces balance horizontally."
+      "Draw the applied push right, kinetic friction left, normal up, gravity down.",
+      "The box moves right in a straight line at constant speed, so acceleration = 0.",
+      "Horizontal forces balance, and the vertical forces balance as well."
     ],
     "w3c": [
       "Choose the hanging backpack as the object.",
