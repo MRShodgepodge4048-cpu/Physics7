@@ -1,4 +1,4 @@
-/* Guided answer checks for supplied Physics 7 workbook problems. */
+/* Audited workbook answer checks. */
 window.PHYSICS7_CHECKS = {
   "w1a": {
     "guide": "Variable: a factor that can change. Constant: a factor kept unchanged. Unit: a standard used to describe a measurement. Physical quantity: a measurable property expressed with a number and unit."
@@ -407,13 +407,16 @@ window.PHYSICS7_CHECKS = {
     ]
   },
   "num14": {
-    "guide": "Fnet = ma = 3.6 × 7.1 = 25.56 N. Accept 25.56 N (nearest hundredth) or 25.6 N (nearest tenth), not an unrelated rounding.",
+    "guide": "Fnet = ma = 3.6 × 7.1 = 25.56 N. Accept 25.56 N unrounded, 25.6 N to the nearest tenth, or 26 N to two significant figures.",
     "fields": [
       {
         "label": "Net force (N)",
         "value": 25.56,
         "tolerance": 0.045,
-        "display": "25.56 N (or 25.6 N to a tenth)"
+        "display": "25.56 N; 25.6 N (tenth); 26 N (two significant figures)",
+        "acceptedValues": [
+          26
+        ]
       }
     ]
   },
