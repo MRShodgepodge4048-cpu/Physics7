@@ -158,3 +158,8 @@
 
 /* Audit: distinguish questions with multiple correct choices. */
 .quiz-multi-reminder{font-size:12px;font-weight:700;color:#6153ad;padding:11px 14px;background:#f3f0ff;border-radius:9px;margin:0 0 14px}
+
+/* Visible release identifier and full-width formula reference. */
+.site-version{display:inline-flex;align-items:center;white-space:nowrap;font-size:10px;font-weight:800;letter-spacing:.035em;color:#6556bc;border:1px solid #e6e0ff;background:#f7f5ff;border-radius:7px;padding:8px 9px}
+.resource-layout-solo{grid-template-columns:minmax(0,1fr)}
+@media(max-width:780px){.topbar-right .site-version{font-size:9px;letter-spacing:0;padding:7px}.topbar-right .semester-pill{display:none}}
