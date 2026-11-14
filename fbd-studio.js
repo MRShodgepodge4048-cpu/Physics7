@@ -11,7 +11,7 @@ const key="physics7_fbd_v1";
 let memory={};try{memory=JSON.parse(localStorage.getItem(key))||{};}catch(e){}
 // Changed angle and normal-force cases require reattempt; preserve all other progress.
 if(memory.__auditVersion!==2){for(const id of ["LM-5","LM-17","LM-18"])delete memory[id];memory.__auditVersion=2;try{localStorage.setItem(key,JSON.stringify(memory));}catch(e){}}
-let selected=cases[0]?.id||"",filter="all";
+let selected=cases[0]?.id||"",filter="all",retryActive=memory.__retryActive||null;
 function state(id){return memory[id]||(memory[id]={arrows:[{force:"",dir:""}],diagramOk:false,balance:"",net:"",complete:false,feedback:""});}
 function save(){try{localStorage.setItem(key,JSON.stringify(memory));}catch(e){}}
 function select(values,value,attrs){return '<select '+attrs+'><option value="">Select…</option>'+Object.entries(values).map(([v,name])=>'<option value="'+esc(v)+'" '+(v===value?"selected":"")+'>'+esc(name)+'</option>').join("")+'</select>';}
@@ -80,16 +80,32 @@ function onClick(e){
  if(b.dataset.fbdCase){selected=b.dataset.fbdCase;render();return;}
  if(b.dataset.fbdAdd){const s=state(b.dataset.fbdAdd);if(s.arrows.length<7){s.arrows.push({force:"",dir:""});s.diagramOk=false;s.complete=false;s.feedback="";save();}render();return;}
  if(b.dataset.fbdDelete!==undefined){const s=state(selected);s.arrows.splice(Number(b.dataset.fbdDelete),1);if(!s.arrows.length)s.arrows=[{force:"",dir:""}];s.diagramOk=false;s.complete=false;s.feedback="";save();render();return;}
- if(b.dataset.fbdCheck){const p=cases.find(p=>p.id===b.dataset.fbdCheck),s=state(p.id),result=validate(p,s);s.diagramOk=result.ok;s.complete=false;s.feedback=result.feedback;save();render();return;}
+ if(b.dataset.fbdCheck){const p=cases.find(p=>p.id===b.dataset.fbdCheck),s=state(p.id),result=validate(p,s);s.diagramOk=result.ok;s.complete=false;s.feedback=result.feedback;if(!result.ok&&s.arrows.some(a=>a.force||a.dir))window.PHYSICS7_RETRY?.mark("fbd",p.id);save();render();return;}
  if(b.dataset.fbdMotion){
   const p=cases.find(p=>p.id===b.dataset.fbdMotion),s=state(p.id);if(!s.diagramOk)return;
   const err=[];
   if(s.balance!==p.balance)err.push(p.balance==="balanced"?"The forces balance: net force is zero.":"The forces are unbalanced: the rock accelerates.");
   if(s.net!==p.net)err.push(p.net==="none"?"The net force is zero.":"The net force points "+dirNames[p.net].toLowerCase()+".");
   s.feedback=err.length?err.join(" "):"Correct! Your arrows and net force agree.";
-  s.complete=!err.length;save();render();return;
+  s.complete=!err.length;
+  if(err.length)window.PHYSICS7_RETRY?.mark("fbd",p.id);
+  if(s.complete&&retryActive===p.id){
+   retryActive=null;delete memory.__retryActive;save();
+   window.PHYSICS7_RETRY?.resolve("fbd",p.id);
+   location.hash="#/mistakes";return;
+  }
+  save();render();return;
  }
  if(b.dataset.fbdRestart){memory[b.dataset.fbdRestart]={arrows:[{force:"",dir:""}],diagramOk:false,balance:"",net:"",complete:false,feedback:""};save();render();}
+}
+function startRetry(id){
+ if(!cases.some(p=>p.id===id)||!window.PHYSICS7_RETRY?.has("fbd",id))return;
+ memory.__priorAttempt??={};
+ memory.__priorAttempt[id]=state(id);
+ memory[id]={arrows:[{force:"",dir:""}],diagramOk:false,balance:"",net:"",complete:false,feedback:""};
+ retryActive=id;memory.__retryActive=id;filter="all";selected=id;
+ const menu=$("#fbdFilter");if(menu)menu.value="all";
+ save();render();location.hash="#/fbd";
 }
 function onChange(e){
  const target=e.target,s=state(selected);
@@ -103,5 +119,5 @@ if($("#fbdCaseList")){
  document.addEventListener("change",onChange);
  render();
 }
-window.PHYSICS_FBD={render,validate,cases,state};
+window.PHYSICS_FBD={render,validate,cases,state,startRetry};
 })();
