@@ -195,10 +195,29 @@ function renderResources(){
  $("#equationList").innerHTML=bank.equations.map(([title,equation])=>'<div class="equation-row"><span>'+safe(title)+'</span><code>'+safe(equation)+'</code></div>').join("");
 }
 function printSummary(){
- const total=bank.quizzes.filter(q=>history[q.id]?.attempted),first=total.filter(q=>history[q.id].firstCorrect).length,miss=incorrect(),rechecks=retryItems(),written=Object.values(notes).filter(v=>String(v).trim()).length;
- const byUnit=[1,2,3].map(u=>{const a=bank.quizzes.filter(q=>q.unit===u&&history[q.id]?.attempted),cor=a.filter(q=>history[q.id].firstCorrect);return '<tr><td>Unit '+u+'</td><td>'+a.length+'</td><td>'+(a.length?Math.round(cor.length*100/a.length)+'%':'—')+'</td></tr>';}).join("");
- $$("#printSummary").forEach(n=>n.remove());const sheet=document.createElement("section");sheet.id="printSummary";sheet.className="print-sheet";
- sheet.innerHTML='<h1>Physics 7 · Pre-Comp Study Summary</h1><p>Generated: '+safe(new Date().toLocaleDateString())+' · Units 1–3</p><p><strong>'+total.length+'</strong> questions attempted · <strong>'+(total.length?Math.round(first/total.length*100)+"%":"—")+'</strong> first-try accuracy · <strong>'+miss.length+'</strong> missed quick checks · <strong>'+rechecks.length+'</strong> total needing recheck · <strong>'+written+'</strong> workbook exercises with notes</p><h2>Unit progress</h2><table><tr><th>Unit</th><th>Attempted</th><th>First-try accuracy</th></tr>'+byUnit+'</table><h2>To revisit</h2>'+(miss.length?'<ul>'+miss.map(q=>'<li>Unit '+q.unit+' — '+safe(q.topic)+' (school review slide '+q.slide+')</li>').join("")+'</ul>':'<p>No missed quick checks remaining.</p>')+'<p>This is a practice summary, not a graded exam result. Workbook notes are self-checked. Progress is saved only on the current device.</p>';
+ const total=bank.quizzes.filter(q=>history[q.id]?.attempted);
+ const first=total.filter(q=>history[q.id].firstCorrect).length;
+ const written=Object.values(notes).filter(v=>String(v).trim()).length;
+ const rechecks=retryItems();
+ const byUnit=[1,2,3].map(u=>{
+  const a=bank.quizzes.filter(q=>q.unit===u&&history[q.id]?.attempted),cor=a.filter(q=>history[q.id].firstCorrect);
+  return '<tr><td>Unit '+u+'</td><td>'+a.length+'</td><td>'+(a.length?Math.round(cor.length*100/a.length)+'%':'—')+'</td></tr>';
+ }).join("");
+ const label={quiz:"Quick check",math:"Math workshop",workbook:"Workbook",fbd:"Force diagram"};
+ const recheckList=rechecks.map(item=>{
+  const q=item.type==="quiz"?bank.quizzes.find(x=>x.id===item.id):
+   item.type==="workbook"?bank.workbook.find(x=>x.id===item.id):
+   item.type==="math"?window.PHYSICS7_MATH?.find(x=>x.id===item.id):
+   item.type==="fbd"?window.PHYSICS7_FBD?.find(x=>x.id===item.id):null;
+  return q?'<li>Unit '+(item.type==="fbd"?3:q.unit)+' · '+safe(label[item.type])+' — '+safe(q.topic||q.title||"Practice exercise")+'</li>':"";
+ }).join("");
+ $$("#printSummary").forEach(n=>n.remove());
+ const sheet=document.createElement("section");sheet.id="printSummary";sheet.className="print-sheet";
+ sheet.innerHTML='<h1>Physics 7 · Pre-Comp Study Summary</h1><p>Generated: '+safe(new Date().toLocaleDateString())+' · Units 1–3</p>'+
+ '<p><strong>'+total.length+'</strong> quick checks attempted · <strong>'+(total.length?Math.round(first/total.length*100)+"%":"—")+'</strong> first-try quick-check accuracy · <strong>'+rechecks.length+'</strong> total needing recheck · <strong>'+written+'</strong> workbook exercises with notes</p>'+
+ '<h2>Unit progress</h2><table><tr><th>Unit</th><th>Quick checks attempted</th><th>First-try accuracy</th></tr>'+byUnit+'</table>'+
+ '<h2>To revisit</h2>'+(recheckList?'<ul>'+recheckList+'</ul>':'<p>No missed items remaining.</p>')+
+ '<p>This is a practice summary, not a graded exam result. Rechecks may include workbook answers, calculations and force diagrams. Progress is saved only on this device.</p>';
  document.body.appendChild(sheet);window.print();
 }
 document.addEventListener("click",e=>{
