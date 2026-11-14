@@ -1,4 +1,4 @@
-/* Three-step explanations for published school review questions; final steps follow student attempts. */
+/* Audited progressive hints. */
 window.PHYSICS7_STEPS = {
   "quizzes": {
     "s05": [
@@ -286,7 +286,7 @@ window.PHYSICS7_STEPS = {
     "num14": [
       "Known: m = 3.6 kg, a = 7.1 m/s². Wanted: Fnet in newtons.",
       "Use Fnet = ma.",
-      "Multiply 3.6 × 7.1 = 25.56 N, or 25.6 N to the nearest tenth."
+      "Multiply 3.6 × 7.1 = 25.56 N; round to 25.6 N (tenth) or 26 N (two significant figures)."
     ],
     "w2a": [
       "The direction convention is east positive; west negative.",
