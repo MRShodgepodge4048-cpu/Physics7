@@ -166,7 +166,7 @@ document.addEventListener("click",e=>{
   return;
  }
  if(b.dataset.check){gradeWorkbook(b.dataset.check);return;}
- if(b.dataset.guide){const id=b.dataset.guide;if(!hasStudentAttempt("workbook",id)){announce("Enter your work or a proposed answer before opening the solution guide.");return;}revealStates[id]=!revealStates[id];save("physics7_revealed_v1",revealStates);const el=$("#guide-"+id);if(el)el.hidden=!revealStates[id];b.setAttribute("aria-expanded",String(revealStates[id]));b.textContent=revealStates[id]?"Hide solution guide":"Show solution guide";return;}
+ if(b.dataset.guide){const id=b.dataset.guide;if(!hasStudentAttempt("workbook",id)){b.textContent="Enter some work first to unlock solutions";announce("Enter your work or a proposed answer before opening the solution guide.");return;}revealStates[id]=!revealStates[id];save("physics7_revealed_v1",revealStates);const el=$("#guide-"+id);if(el)el.hidden=!revealStates[id];b.setAttribute("aria-expanded",String(revealStates[id]));b.textContent=revealStates[id]?"Hide solution guide":"Show solution guide";return;}
  if(b.dataset.retry){filter={unit:"all",topic:"all",search:""};$("#quizUnit").value="all";$("#quizSearch").value="";topicSelect("#quizTopic",bank.quizzes,"all");index=getQuestions().findIndex(q=>q.id===b.dataset.retry);go("practice");return;}
 });
 $("#quizUnit").addEventListener("change",e=>{filter.unit=e.target.value;filter.topic=topicSelect("#quizTopic",bank.quizzes,filter.unit);index=0;renderQuiz();});
