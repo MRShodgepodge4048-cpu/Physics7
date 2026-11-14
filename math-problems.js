@@ -1,4 +1,4 @@
-/* School-authored calculation problems for Units 1-3; audited physical assumptions. */
+/* Audited school calculation problems. */
 window.PHYSICS7_MATH = [
   {
     "id": "p01",
@@ -395,14 +395,17 @@ window.PHYSICS7_MATH = [
     "id": "p30",
     "unit": 3,
     "topic": "Newton's second law",
-    "q": "What is the net force on a 3.6 kg block of wood that accelerates at 7.1 m/s²? Give the result to the nearest hundredth or tenth of a newton.",
+    "q": "What is the net force on a 3.6 kg block of wood accelerating at 7.1 m/s²? Report your result unrounded, to the nearest tenth, or to two significant figures.",
     "source": "Physics 7 Pre-Comp Review 2023 · White Boards",
     "type": "force",
     "mass": 3.6,
     "acc": 7.1,
     "result": 25.56,
     "tolerance": 0.045,
-    "answerUnit": "N"
+    "answerUnit": "N",
+    "acceptedValues": [
+      26
+    ]
   },
   {
     "id": "p31",
